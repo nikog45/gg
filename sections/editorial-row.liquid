@@ -1,0 +1,578 @@
+<style>
+  .editorial-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: {{ section.settings.gap }}px;
+    background-color: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_v }}px {{ section.settings.padding_h }}px;
+  }
+
+  @media (min-width: 768px) {
+    .editorial-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* ── Shared tile base ── */
+  .editorial-tile {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    border-radius: {{ section.settings.border_radius }}px;
+    aspect-ratio: 1 / 1;
+    background: #111;
+  }
+
+  .editorial-tile--16-9  { aspect-ratio: 16 / 9; }
+  .editorial-tile--4-3   { aspect-ratio: 4 / 3; }
+  .editorial-tile--3-2   { aspect-ratio: 3 / 2; }
+  .editorial-tile--free  { aspect-ratio: unset; min-height: 300px; }
+
+  /* ── Image tile ── */
+  .editorial-tile__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .editorial-tile:hover .editorial-tile__img {
+    transform: scale({% if section.settings.hover_zoom %}1.04{% else %}1{% endif %});
+  }
+
+  /* ── Video tile ── */
+  .editorial-tile__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* ── Overlay ── */
+  .editorial-tile__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+  }
+
+  /* ── Text content ── */
+  .editorial-tile__body {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+
+    {% case section.settings.text_align_v %}
+      {% when 'top' %}    justify-content: flex-start;
+      {% when 'middle' %} justify-content: center;
+      {% when 'bottom' %} justify-content: flex-end;
+    {% endcase %}
+
+    {% case section.settings.text_align_h %}
+      {% when 'left' %}   align-items: flex-start; text-align: left;
+      {% when 'center' %} align-items: center;     text-align: center;
+      {% when 'right' %}  align-items: flex-end;   text-align: right;
+    {% endcase %}
+  }
+
+  .editorial-tile__eyebrow {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+
+  .editorial-tile__heading {
+    margin: 0 0 10px;
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 800;
+    line-height: 1.15;
+    color: {{ section.settings.text_color }};
+    letter-spacing: -0.3px;
+  }
+
+  .editorial-tile__sub {
+    margin: 0 0 18px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: {{ section.settings.text_color }};
+    opacity: 0.85;
+    max-width: 320px;
+  }
+
+  .editorial-tile__btn {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: opacity 0.2s ease;
+    background-color: {{ section.settings.btn_bg }};
+    color: {{ section.settings.btn_color }};
+    border: 1px solid {{ section.settings.btn_border }};
+    cursor: pointer;
+  }
+
+  .editorial-tile__btn:hover { opacity: 0.85; }
+
+  /* ── Sound toggle ── */
+  .editorial-tile__sound {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .editorial-tile__sound:hover { background: rgba(0,0,0,0.6); }
+
+  .editorial-tile__sound svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+  }
+
+  .editorial-tile__sound .icon-unmute { display: none; }
+  .editorial-tile__sound.is-unmuted .icon-mute   { display: none; }
+  .editorial-tile__sound.is-unmuted .icon-unmute { display: block; }
+</style>
+
+<div class="editorial-row" id="editorial-row-{{ section.id }}">
+
+  {%- for block in section.blocks -%}
+
+    {%- if block.type == 'image_tile' -%}
+      {%- assign tile_tag = 'div' -%}
+      {%- if block.settings.link != blank -%}{%- assign tile_tag = 'a' -%}{%- endif -%}
+
+      <{{ tile_tag }}
+        class="editorial-tile editorial-tile--{{ section.settings.aspect_ratio }}"
+        {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %}
+        {{ block.shopify_attributes }}
+      >
+        {%- if block.settings.image != blank -%}
+          {{
+            block.settings.image
+            | image_url: width: 1500
+            | image_tag:
+              loading: 'lazy',
+              class: 'editorial-tile__img',
+              widths: '420, 640, 750, 960, 1200, 1500',
+              sizes: '(min-width: 768px) 50vw, 100vw'
+          }}
+        {%- else -%}
+          {{ 'collection-1' | placeholder_svg_tag: 'editorial-tile__img' }}
+        {%- endif -%}
+
+        <div class="editorial-tile__overlay"></div>
+
+        {%- if block.settings.heading != blank or block.settings.subtext != blank or block.settings.btn_label != blank -%}
+          <div class="editorial-tile__body">
+            {%- if block.settings.eyebrow != blank -%}
+              <span class="editorial-tile__eyebrow">{{ block.settings.eyebrow }}</span>
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <h2 class="editorial-tile__heading">{{ block.settings.heading }}</h2>
+            {%- endif -%}
+            {%- if block.settings.subtext != blank -%}
+              <p class="editorial-tile__sub">{{ block.settings.subtext }}</p>
+            {%- endif -%}
+            {%- if block.settings.btn_label != blank -%}
+              <span class="editorial-tile__btn">{{ block.settings.btn_label }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </{{ tile_tag }}>
+
+    {%- elsif block.type == 'video_tile' -%}
+      <div
+        class="editorial-tile editorial-tile--{{ section.settings.aspect_ratio }}"
+        {{ block.shopify_attributes }}
+      >
+        {%- if block.settings.video_url != blank -%}
+          <video
+            class="editorial-tile__video"
+            src="{{ block.settings.video_url }}"
+            {% if block.settings.poster != blank %}
+              poster="{{ block.settings.poster | image_url: width: 960 }}"
+            {% endif %}
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+        {%- else -%}
+          {{ 'collection-2' | placeholder_svg_tag: 'editorial-tile__img' }}
+        {%- endif -%}
+
+        <div class="editorial-tile__overlay"></div>
+
+        {%- if block.settings.heading != blank or block.settings.subtext != blank or block.settings.btn_label != blank -%}
+          <div class="editorial-tile__body">
+            {%- if block.settings.eyebrow != blank -%}
+              <span class="editorial-tile__eyebrow">{{ block.settings.eyebrow }}</span>
+            {%- endif -%}
+            {%- if block.settings.heading != blank -%}
+              <h2 class="editorial-tile__heading">{{ block.settings.heading }}</h2>
+            {%- endif -%}
+            {%- if block.settings.subtext != blank -%}
+              <p class="editorial-tile__sub">{{ block.settings.subtext }}</p>
+            {%- endif -%}
+            {%- if block.settings.btn_label != blank -%}
+              {%- if block.settings.btn_link != blank -%}
+                <a href="{{ block.settings.btn_link }}" class="editorial-tile__btn">{{ block.settings.btn_label }}</a>
+              {%- else -%}
+                <span class="editorial-tile__btn">{{ block.settings.btn_label }}</span>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if block.settings.show_sound_toggle and block.settings.video_url != blank -%}
+          <button
+            class="editorial-tile__sound"
+            aria-label="Attiva/disattiva audio"
+            data-sound-btn="{{ section.id }}-{{ block.id }}"
+          >
+            <!-- muted icon -->
+            <svg class="icon-mute" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+            </svg>
+            <!-- unmuted icon -->
+            <svg class="icon-unmute" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+          </button>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  {%- endfor -%}
+
+</div>
+
+<script>
+  (function () {
+    document.querySelectorAll('[data-sound-btn]').forEach(function (btn) {
+      var sectionId = btn.dataset.soundBtn;
+      var tile = btn.closest('.editorial-tile');
+      var video = tile ? tile.querySelector('video') : null;
+      if (!video) return;
+
+      btn.addEventListener('click', function () {
+        video.muted = !video.muted;
+        btn.classList.toggle('is-unmuted', !video.muted);
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Editorial Row",
+  "tag": "section",
+  "class": "editorial-row-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "Aspect ratio",
+      "options": [
+        { "value": "1",    "label": "1:1 Square" },
+        { "value": "4-3",  "label": "4:3" },
+        { "value": "3-2",  "label": "3:2" },
+        { "value": "16-9", "label": "16:9 Wide" },
+        { "value": "free", "label": "Free height" }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between tiles",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "padding_v",
+      "label": "Vertical padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_h",
+      "label": "Horizontal padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "hover_zoom",
+      "label": "Zoom image on hover",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Text & Button"
+    },
+    {
+      "type": "select",
+      "id": "text_align_v",
+      "label": "Text — vertical position",
+      "options": [
+        { "value": "top",    "label": "Top" },
+        { "value": "middle", "label": "Middle" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "select",
+      "id": "text_align_h",
+      "label": "Text — horizontal align",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button text",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "btn_border",
+      "label": "Button border",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_tile",
+      "name": "Image Tile",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)"
+        },
+        {
+          "type": "header",
+          "content": "Text overlay"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow label",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": ""
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button label",
+          "default": ""
+        }
+      ]
+    },
+    {
+      "type": "video_tile",
+      "name": "Video Tile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL (.mp4)",
+          "info": "Paste a direct .mp4 URL. The video will autoplay muted and loop."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image (shown before video loads)"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_sound_toggle",
+          "label": "Show sound toggle button",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Text overlay"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow label",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": ""
+        },
+        {
+          "type": "textarea",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": ""
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button label",
+          "default": ""
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Row — Image + Video",
+      "blocks": [
+        {
+          "type": "image_tile",
+          "settings": {
+            "heading": "",
+            "btn_label": ""
+          }
+        },
+        {
+          "type": "video_tile",
+          "settings": {
+            "show_sound_toggle": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Editorial Row — Image + Image",
+      "blocks": [
+        { "type": "image_tile" },
+        { "type": "image_tile" }
+      ]
+    }
+  ]
+}
+{% endschema %}
