@@ -1,0 +1,643 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+<style>
+  /* ── Section wrapper ── */
+  .astheye-testimonials {
+    background-color: {{ section.settings.bg_color }};
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
+  }
+
+  .astheye-testimonials__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 1.5rem;
+  }
+
+  /* ── Two-column layout ── */
+  .astheye-testimonials__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  /* ── Left: brand summary ── */
+  .astheye-testimonials__summary {}
+
+  .astheye-testimonials__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #111111;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .astheye-testimonials__heading {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111111;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin: 0 0 6px;
+  }
+
+  .astheye-testimonials__score {
+    font-size: 40px;
+    font-weight: 900;
+    color: #111111;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+
+  .astheye-testimonials__score span {
+    font-size: 18px;
+    font-weight: 500;
+    color: #888888;
+    letter-spacing: 0;
+  }
+
+  .astheye-testimonials__stars {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin: 10px 0 8px;
+  }
+
+  .astheye-testimonials__stars svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+  .astheye-testimonials__count {
+    font-size: 12px;
+    color: #888888;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .astheye-testimonials__platform {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .astheye-testimonials__platform-logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #111111;
+  }
+
+  .astheye-testimonials__platform-logo svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ── Right: slider area ── */
+  .astheye-testimonials__slider-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .astheye-testimonials__slider-wrap {
+    flex: 1;
+    min-width: 0;
+    /* bleed on mobile */
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .astheye-testimonials__swiper {
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  /* ── Individual card ── */
+  .astheye-testimonials__card {
+    height: auto !important;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    padding: 20px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .astheye-testimonials__card:hover {
+    border-color: #c8c8c8;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .astheye-testimonials__card-stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .astheye-testimonials__card-stars svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .astheye-testimonials__card-title {
+    margin: 10px 0 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .astheye-testimonials__card-body {
+    margin: 8px 0 0;
+    font-size: 12px;
+    color: #444444;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+
+  .astheye-testimonials__card-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #eeeeee;
+  }
+
+  .astheye-testimonials__card-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #111111;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  .astheye-testimonials__card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .astheye-testimonials__card-author {
+    margin: 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: #111111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .astheye-testimonials__card-date {
+    margin: 0;
+    font-size: 10px;
+    color: #999999;
+  }
+
+  .astheye-testimonials__card-verified {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    color: #00b67a;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .astheye-testimonials__card-verified svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ── Nav buttons ── */
+  .astheye-btn-prev,
+  .astheye-btn-next {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #d0d0d0;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    -webkit-appearance: none;
+    z-index: 2;
+  }
+
+  .astheye-btn-prev:hover,
+  .astheye-btn-next:hover {
+    background: #111111;
+    border-color: #111111;
+  }
+
+  .astheye-btn-prev:hover svg,
+  .astheye-btn-next:hover svg {
+    stroke: #ffffff;
+  }
+
+  .astheye-btn-prev svg,
+  .astheye-btn-next svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+    stroke: #555555;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s ease;
+  }
+
+  .astheye-btn-prev.swiper-button-disabled,
+  .astheye-btn-next.swiper-button-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  .astheye-btn-prev.swiper-button-lock,
+  .astheye-btn-next.swiper-button-lock {
+    display: none;
+  }
+
+  /* ── Pagination dots ── */
+  .astheye-testimonials__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .astheye-testimonials__pagination .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #cccccc;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .astheye-testimonials__pagination .swiper-pagination-bullet-active {
+    background: #111111;
+    transform: scale(1.3);
+  }
+
+  /* ── Desktop ── */
+  @media (min-width: 1024px) {
+    .astheye-testimonials__inner {
+      padding: 60px 5rem;
+    }
+
+    .astheye-testimonials__grid {
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+    }
+
+    .astheye-testimonials__swiper {
+      overflow: hidden !important;
+    }
+
+    .astheye-testimonials__slider-wrap {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .astheye-testimonials__heading {
+      font-size: 22px;
+    }
+
+    .astheye-testimonials__score {
+      font-size: 48px;
+    }
+  }
+</style>
+
+<section class="astheye-testimonials" id="astheye-testimonials-{{ section.id }}">
+  <div class="astheye-testimonials__inner">
+    <div class="astheye-testimonials__grid">
+
+      <!-- Left: Summary -->
+      <div class="astheye-testimonials__summary">
+        <div class="astheye-testimonials__badge">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="6" r="5.5" stroke="#00b67a" stroke-width="1"/>
+            <path d="M3.5 6L5.5 8L8.5 4" stroke="#00b67a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Verificato
+        </div>
+        <p class="astheye-testimonials__heading">{{ section.settings.heading }}</p>
+        <div class="astheye-testimonials__score">
+          {{ section.settings.score }}<span>/5.0</span>
+        </div>
+        <div class="astheye-testimonials__stars">
+          {% assign full_stars = section.settings.score | floor %}
+          {% for i in (1..5) %}
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" fill="{% if i <= full_stars %}#00b67a{% else %}#e0e0e0{% endif %}"/>
+              <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="#ffffff"/>
+            </svg>
+          {% endfor %}
+        </div>
+        <p class="astheye-testimonials__count">{{ section.settings.review_count }}</p>
+
+        <div class="astheye-testimonials__platform">
+          <div class="astheye-testimonials__platform-logo">
+            <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+              <rect width="18" height="18" fill="#00b67a" rx="2"/>
+              <path d="M5.4 15L9 11.9L12.6 15L11.4 10.6L15 8H10.3L9 3.5L7.7 8H3L6.6 10.6L5.4 15Z" fill="#fff"/>
+            </svg>
+            Trustpilot
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Slider -->
+      <div class="astheye-testimonials__slider-area">
+        <button class="astheye-btn-prev" aria-label="Recensione precedente">
+          <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="9,2 4,7 9,12"/>
+          </svg>
+        </button>
+
+        <div class="astheye-testimonials__slider-wrap">
+          <div
+            class="astheye-testimonials__swiper swiper"
+            data-gap="12"
+            data-gap-mobile="16"
+            data-view="2"
+            data-view-mobile="1.1"
+          >
+            <div class="swiper-wrapper">
+
+              {% for block in section.blocks %}
+                {% if block.type == 'testimonial' %}
+                  <div class="astheye-testimonials__card swiper-slide" {{ block.shopify_attributes }}>
+                    <div class="astheye-testimonials__card-stars">
+                      {% assign rating = block.settings.rating | default: 5 %}
+                      {% for i in (1..5) %}
+                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="32" height="32" fill="{% if i <= rating %}#00b67a{% else %}#e0e0e0{% endif %}"/>
+                          <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="#ffffff"/>
+                        </svg>
+                      {% endfor %}
+                    </div>
+                    <p class="astheye-testimonials__card-title">{{ block.settings.title }}</p>
+                    <p class="astheye-testimonials__card-body">{{ block.settings.body }}</p>
+                    <div class="astheye-testimonials__card-footer">
+                      <div class="astheye-testimonials__card-avatar">
+                        {{ block.settings.author | slice: 0, 1 }}
+                      </div>
+                      <div class="astheye-testimonials__card-meta">
+                        <p class="astheye-testimonials__card-author">{{ block.settings.author }}</p>
+                        <p class="astheye-testimonials__card-date">{{ block.settings.date }}</p>
+                      </div>
+                      <div class="astheye-testimonials__card-verified">
+                        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="6" cy="6" r="5.5" stroke="#00b67a" stroke-width="1"/>
+                          <path d="M3.5 6L5.5 8L8.5 4" stroke="#00b67a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Verificato
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+
+            </div>
+          </div>
+          <div class="astheye-testimonials__pagination"></div>
+        </div>
+
+        <button class="astheye-btn-next" aria-label="Recensione successiva">
+          <svg viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="5,2 10,7 5,12"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  (function () {
+    var sectionId = 'astheye-testimonials-{{ section.id }}';
+
+    function initSlider() {
+      var section = document.getElementById(sectionId);
+      if (!section) return;
+
+      var el = section.querySelector('.astheye-testimonials__swiper');
+      if (!el || el._swiperInitialized) return;
+      el._swiperInitialized = true;
+
+      new Swiper(el, {
+        speed: 320,
+        loop: true,
+        navigation: {
+          nextEl: section.querySelector('.astheye-btn-next'),
+          prevEl: section.querySelector('.astheye-btn-prev'),
+        },
+        pagination: {
+          el: section.querySelector('.astheye-testimonials__pagination'),
+          clickable: true,
+          bulletClass: 'swiper-pagination-bullet',
+          bulletActiveClass: 'swiper-pagination-bullet-active',
+        },
+        breakpoints: {
+          320: {
+            spaceBetween: parseInt(el.dataset.gapMobile || 16),
+            slidesPerView: parseFloat(el.dataset.viewMobile || 1.1),
+          },
+          768: {
+            spaceBetween: parseInt(el.dataset.gap || 12),
+            slidesPerView: parseFloat(el.dataset.view || 2),
+          },
+          1024: {
+            spaceBetween: parseInt(el.dataset.gap || 12),
+            slidesPerView: parseFloat(el.dataset.view || 2),
+          },
+        },
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initSlider);
+    } else {
+      initSlider();
+    }
+
+    if (window.Shopify && Shopify.designMode) {
+      document.addEventListener('shopify:section:load', function (e) {
+        if (e.detail && e.detail.sectionId === '{{ section.id }}') initSlider();
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Testimonianze",
+  "tag": "section",
+  "class": "astheye-testimonials-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Colore di sfondo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titolo",
+      "default": "Cosa dicono i nostri clienti"
+    },
+    {
+      "type": "text",
+      "id": "score",
+      "label": "Punteggio (es. 4.7)",
+      "default": "4.7"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Testo conteggio recensioni",
+      "default": "Basato su 408+ recensioni verificate"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonianza",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Valutazione (stelle)",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titolo",
+          "default": "Ottimo acquisto!"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Testo della recensione",
+          "default": "Prodotto di qualità, consegna rapida. Consiglio vivamente."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Nome autore",
+          "default": "Mario R."
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Data",
+          "default": "2 giorni fa"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonianze Astheye",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Motosega DeWalt arrivata perfetta",
+            "body": "Ho ordinato la DeWalt XR 18V e in 48 ore era già qui, imballata con cura. Potenza impressionante per la sua categoria. Astheye è diventato il mio punto di riferimento per gli attrezzi professionali.",
+            "author": "Marco B.",
+            "date": "1 giorno fa"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Sito affidabile, prodotti originali garantiti",
+            "body": "Avevo qualche dubbio nel comprare online un flex DeWalt, ma ho ricevuto il prodotto originale con tutta la documentazione. Il supporto via email è stato rapido e professionale. Tornerò sicuramente.",
+            "author": "Luca P.",
+            "date": "3 giorni fa"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Trapano avvitatore top, consegna fulmine",
+            "body": "Il toolkit DeWalt che ho preso è eccezionale. Qualità costruttiva ai massimi livelli e il prezzo su Astheye era il migliore che avessi trovato. Spedizione velocissima, pacco intatto.",
+            "author": "Giulia M.",
+            "date": "2 giorni fa"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Servizio clienti impeccabile",
+            "body": "Ho avuto un problema con la taglia del kit e il team di Astheye ha risolto tutto in meno di un giorno. Professionalità rara. I prodotti sono autentici e ben descritti. 10/10.",
+            "author": "Fabrizio C.",
+            "date": "5 giorni fa"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "title": "Finalmente un negozio serio per i professionisti",
+            "body": "Ho comprato diversi attrezzi qui nel corso dell'anno. Sempre tutto perfetto: prodotti originali DeWalt, prezzi competitivi, spedizioni puntuali. Consigliatissimo a chiunque lavori nel settore.",
+            "author": "Roberto S.",
+            "date": "1 settimana fa"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
