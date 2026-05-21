@@ -1,0 +1,115 @@
+{% comment %}
+  EDITORIAL ROW — Custom Liquid block version
+  Edit the variables below to customize this block.
+{% endcomment %}
+
+{% liquid
+  assign er_image_url   = "https://your-image-url.jpg"
+  assign er_image_link  = "/collections/all"
+  assign er_video_url   = "https://your-video.mp4"
+  assign er_poster_url  = "https://your-poster.jpg"
+  assign er_gap         = "8px"
+  assign er_radius      = "4px"
+  assign er_aspect      = "100%"
+%}
+
+<style>
+  .er-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: {{ er_gap }};
+  }
+  @media (min-width: 768px) {
+    .er-row { grid-template-columns: 1fr 1fr; }
+  }
+  .er-tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ er_radius }};
+    background: #111;
+    display: block;
+    width: 100%;
+  }
+  .er-tile::before {
+    content: "";
+    display: block;
+    padding-top: {{ er_aspect }};
+  }
+  .er-tile__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .er-tile__img { transition: transform 0.5s ease; }
+  .er-tile:hover .er-tile__img { transform: scale(1.04); }
+  .er-sound {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    z-index: 3;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+  }
+  .er-sound svg { width: 14px; height: 14px; fill: #fff; display: block; }
+  .er-sound .icon-on  { display: none; }
+  .er-sound.unmuted .icon-off { display: none; }
+  .er-sound.unmuted .icon-on  { display: block; }
+</style>
+
+<div class="er-row">
+
+  <!-- IMAGE TILE -->
+  <a class="er-tile" href="{{ er_image_link }}">
+    <img
+      class="er-tile__media er-tile__img"
+      src="{{ er_image_url }}"
+      alt=""
+      loading="lazy"
+    >
+  </a>
+
+  <!-- VIDEO TILE -->
+  <div class="er-tile">
+    <video
+      id="er-video-{{ section.id }}"
+      class="er-tile__media"
+      src="{{ er_video_url }}"
+      poster="{{ er_poster_url }}"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    ></video>
+
+    <button class="er-sound" id="er-sound-{{ section.id }}" aria-label="Toggle sound">
+      <!-- muted -->
+      <svg class="icon-off" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM18.5 3.23v2.06C21.89 6.15 24 9 24 12s-2.11 5.85-5.5 6.71v2.06C22.87 19.86 26 16.28 26 12s-3.13-7.86-7.5-8.77z"/></svg>
+      <!-- unmuted -->
+      <svg class="icon-on" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0014 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM18.5 3.23v2.06C21.89 6.15 24 9 24 12s-2.11 5.85-5.5 6.71v2.06C22.87 19.86 26 16.28 26 12s-3.13-7.86-7.5-8.77z M3.63 3.63L2.22 5.04l18.74 18.74 1.41-1.41z"/></svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+  (function(){
+    var btn   = document.getElementById('er-sound-{{ section.id }}');
+    var video = document.getElementById('er-video-{{ section.id }}');
+    if (!btn || !video) return;
+    btn.addEventListener('click', function(){
+      video.muted = !video.muted;
+      btn.classList.toggle('unmuted', !video.muted);
+    });
+  })();
+</script>
