@@ -360,19 +360,6 @@
           Verificato
         </div>
         <p class="astheye-testimonials__heading">{{ section.settings.heading }}</p>
-        <div class="astheye-testimonials__score">
-          {{ section.settings.score }}<span>/5.0</span>
-        </div>
-        <div class="astheye-testimonials__stars">
-          {% assign full_stars = section.settings.score | floor %}
-          {% for i in (1..5) %}
-            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-              <rect width="32" height="32" fill="{% if i <= full_stars %}#00b67a{% else %}#e0e0e0{% endif %}"/>
-              <path d="M9.20283 27L16.001 21.807L22.7972 27L20.2018 18.596L27 13.403H18.5984L16.001 5L13.4037 13.403H5L11.7982 18.596L9.20283 27Z" fill="#ffffff"/>
-            </svg>
-          {% endfor %}
-        </div>
-        <p class="astheye-testimonials__count">{{ section.settings.review_count }}</p>
 
         <div class="astheye-testimonials__platform">
           <div class="astheye-testimonials__platform-logo">
