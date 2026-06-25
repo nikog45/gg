@@ -5,7 +5,11 @@
 {% endcomment %}
 
 {% liquid
-  assign f_bg          = "#0E2A24"
+  comment
+    Brand orange. For a lighter orange use "#FF7A1F" — BUT if you go lighter,
+    set f_text to "#1A1A1A" (dark) instead of white, or the letters get hard to read.
+  endcomment
+  assign f_bg          = "#FF6600"
   assign f_text        = "#FFFFFF"
 
   assign f_brand       = "Unieuro"
@@ -73,7 +77,7 @@
     letter-spacing: 2.5px;
     text-transform: uppercase;
     margin: 0 0 16px;
-    opacity: 0.85;
+    opacity: 0.95;
   }
   .ufoot__address { font-style: italic; margin: 0 0 6px; opacity: 0.95; }
   .ufoot__phone   { font-style: italic; margin: 18px 0 30px; opacity: 0.95; }
@@ -87,7 +91,7 @@
     letter-spacing: 2.5px;
     text-transform: uppercase;
     margin: 0 0 28px;
-    opacity: 0.85;
+    opacity: 0.95;
   }
   .ufoot__hours { display: grid; grid-template-columns: auto 1fr; gap: 14px 40px; }
   .ufoot__hours-day  { font-weight: 600; }
