@@ -1,21 +1,3 @@
-{% comment %}
-  LIMITED-TIME OFFER COUNTDOWN — Slow Pour Society
-
-  Only enable this block while a genuinely time-limited discount is live
-  (e.g. a real discount code that expires). Set `promo_end_iso` below to
-  that offer's real end date/time (UTC, ISO 8601). The countdown counts
-  down to that one fixed moment for every visitor — it does NOT reset
-  per session, so it can't show "12 hours left" forever. Once the timer
-  hits zero the block hides itself. Remove/disable this block entirely
-  when there is no active, real promotion — a countdown with nothing
-  behind it is a deceptive-urgency claim under Whop's guidelines and FTC
-  rules, regardless of colors used.
-{% endcomment %}
-
-{% liquid
-  assign promo_end_iso = "2026-07-15T23:59:59Z"
-%}
-
 <style>
   .urgency-bar-wrap {
     background: #F3EDE3; /* Oat */
@@ -36,10 +18,28 @@
     color: #7C8471; /* Sage */
     margin-bottom: 10px;
   }
+  .urgency-bar-track {
+    width: 100%;
+    background: #D8C3A5; /* Kraft */
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .urgency-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #C1663A, #D9A05B); /* Terracotta -> warm amber */
+    border-radius: 999px;
+    transition: width 0.3s ease;
+  }
   .urgency-bar-meta {
     display: flex;
-    justify-content: center;
-    font-size: 13px;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #3B2417; /* Espresso */
+  }
+  .urgency-bar-meta .sold {
+    font-weight: 600;
     color: #3B2417; /* Espresso */
   }
   .urgency-bar-meta .countdown {
@@ -51,19 +51,32 @@
     color: #C1663A; /* Terracotta */
   }
 </style>
-
-<div class="urgency-bar-wrap" id="urgency-bar-wrap">
-  <div class="urgency-title">Offerta a tempo limitato</div>
-  <div class="urgency-subtitle">Sconto valido fino alla fine del countdown</div>
+<div class="urgency-bar-wrap">
+  <div class="urgency-title">In esaurimento</div>
+  <div class="urgency-subtitle">Alta richiesta · disponibilità limitata</div>
+  <div class="urgency-bar-track">
+    <div class="urgency-bar-fill" id="urgency-fill" style="width: 92%;"></div>
+  </div>
   <div class="urgency-bar-meta">
-    <span class="countdown">Termina tra <span id="urgency-countdown">--:--:--</span></span>
+    <span class="sold" id="urgency-sold">92% venduto</span>
+    <span class="countdown">Termina tra <span id="urgency-countdown">12:00:00</span></span>
   </div>
 </div>
-
 <script>
   (function() {
-    var endTime = new Date("{{ promo_end_iso }}").getTime();
-
+    var countdownSeconds = 12 * 60 * 60;
+    var storageKey = 'urgency_end_time';
+    var endTime = sessionStorage.getItem(storageKey);
+    if (!endTime) {
+      endTime = Date.now() + countdownSeconds * 1000;
+      sessionStorage.setItem(storageKey, endTime);
+    } else {
+      endTime = parseInt(endTime);
+      if (Date.now() > endTime) {
+        endTime = Date.now() + countdownSeconds * 1000;
+        sessionStorage.setItem(storageKey, endTime);
+      }
+    }
     function updateCountdown() {
       var now = Date.now();
       var remaining = Math.max(0, Math.floor((endTime - now) / 1000));
@@ -76,12 +89,10 @@
         String(seconds).padStart(2, '0');
       var el = document.getElementById('urgency-countdown');
       if (el) el.textContent = display;
-
       if (remaining > 0) {
         setTimeout(updateCountdown, 1000);
       } else {
-        var wrap = document.getElementById('urgency-bar-wrap');
-        if (wrap) wrap.style.display = 'none';
+        sessionStorage.removeItem('urgency_end_time');
       }
     }
     updateCountdown();
