@@ -1,0 +1,89 @@
+{% comment %}
+  LIMITED-TIME OFFER COUNTDOWN — Slow Pour Society
+
+  Only enable this block while a genuinely time-limited discount is live
+  (e.g. a real discount code that expires). Set `promo_end_iso` below to
+  that offer's real end date/time (UTC, ISO 8601). The countdown counts
+  down to that one fixed moment for every visitor — it does NOT reset
+  per session, so it can't show "12 hours left" forever. Once the timer
+  hits zero the block hides itself. Remove/disable this block entirely
+  when there is no active, real promotion — a countdown with nothing
+  behind it is a deceptive-urgency claim under Whop's guidelines and FTC
+  rules, regardless of colors used.
+{% endcomment %}
+
+{% liquid
+  assign promo_end_iso = "2026-07-15T23:59:59Z"
+%}
+
+<style>
+  .urgency-bar-wrap {
+    background: #F3EDE3; /* Oat */
+    border: 1px solid #D8C3A5; /* Kraft */
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-family: inherit;
+  }
+  .urgency-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #3B2417; /* Espresso */
+    margin-bottom: 2px;
+  }
+  .urgency-subtitle {
+    font-size: 12px;
+    color: #7C8471; /* Sage */
+    margin-bottom: 10px;
+  }
+  .urgency-bar-meta {
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+    color: #3B2417; /* Espresso */
+  }
+  .urgency-bar-meta .countdown {
+    color: #C1663A; /* Terracotta */
+    font-weight: 600;
+  }
+  .urgency-bar-meta .countdown span {
+    font-weight: 700;
+    color: #C1663A; /* Terracotta */
+  }
+</style>
+
+<div class="urgency-bar-wrap" id="urgency-bar-wrap">
+  <div class="urgency-title">Offerta a tempo limitato</div>
+  <div class="urgency-subtitle">Sconto valido fino alla fine del countdown</div>
+  <div class="urgency-bar-meta">
+    <span class="countdown">Termina tra <span id="urgency-countdown">--:--:--</span></span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var endTime = new Date("{{ promo_end_iso }}").getTime();
+
+    function updateCountdown() {
+      var now = Date.now();
+      var remaining = Math.max(0, Math.floor((endTime - now) / 1000));
+      var hours   = Math.floor(remaining / 3600);
+      var minutes = Math.floor((remaining % 3600) / 60);
+      var seconds = remaining % 60;
+      var display =
+        String(hours).padStart(2, '0') + ':' +
+        String(minutes).padStart(2, '0') + ':' +
+        String(seconds).padStart(2, '0');
+      var el = document.getElementById('urgency-countdown');
+      if (el) el.textContent = display;
+
+      if (remaining > 0) {
+        setTimeout(updateCountdown, 1000);
+      } else {
+        var wrap = document.getElementById('urgency-bar-wrap');
+        if (wrap) wrap.style.display = 'none';
+      }
+    }
+    updateCountdown();
+  })();
+</script>
