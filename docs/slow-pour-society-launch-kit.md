@@ -75,6 +75,35 @@ Warm, earthy, "third-wave café" — reads premium and calm, not loud.
 All are open-source (SIL Open Font License) — free for commercial use, no
 licensing risk.
 
+### Shopify theme color settings
+
+Canonical values for a Shopify theme's color scheme editor. Keeps the storefront
+warm/café-toned instead of stark white/black, and uses Terracotta as the single
+consistent "action" color across buttons, sale accents, and badges.
+
+| Field | Color | Hex |
+|---|---|---|
+| General — Background | Oat | `#F3EDE3` |
+| General — Text | Espresso | `#3B2417` |
+| General — Success | Muted sage-green | `#5B8C5A` |
+| General — Warning | Warm amber | `#D9A05B` |
+| General — Error | Warm brick-red | `#B23A2E` |
+| Header — Background | Espresso | `#3B2417` |
+| Header — Text | Oat | `#F3EDE3` |
+| Footer — Background | Roast Black | `#1E1712` |
+| Footer — Text | Kraft | `#D8C3A5` |
+| Drawer/popover — Modal background | Oat | `#F3EDE3` |
+| Primary button — Background | Terracotta | `#C1663A` |
+| Primary button — Text | Oat | `#F3EDE3` |
+| Secondary button — Background | Oat | `#F3EDE3` |
+| Secondary button — Text | Terracotta | `#C1663A` |
+| Product — Card background | Off-white | `#FBF8F4` |
+| Product — Card text | Espresso | `#3B2417` |
+| Product — Star rating | Warm amber | `#D9A05B` |
+| Product — On sale accent | Terracotta | `#C1663A` |
+| Product — Sold out badge | Roast Black | `#1E1712` |
+| Product — Custom badge | Terracotta | `#C1663A` |
+
 ### Logo direction
 
 A circular **"society seal/badge"** lockup: "SLOW POUR SOCIETY" wrapping a
