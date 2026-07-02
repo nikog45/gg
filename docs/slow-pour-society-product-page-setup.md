@@ -98,10 +98,33 @@ Add as a **Collapsible content** block or a modal linked from the size selector:
 
 ## 7. Reviews section
 
-Use a review app (Judge.me, Loox, or Shopify's native Product Reviews) rather than hand-written testimonials, so reviews are verifiably real and timestamped. Until you have real reviews:
+Use a review app rather than hand-written testimonials, so reviews are
+verifiably real and timestamped. Recommended: **Judge.me** (free plan covers
+verified-buyer badges, photo reviews, automatic review-request emails, and
+Google star ratings; integrates natively with Impact).
 
-- Either hide this section entirely, or
-- Show a soft "Be the first to review this product" prompt — never seed it with fabricated reviews
+**Setup:**
+1. Apps → App Store → install Judge.me (free plan)
+2. Online Store → Customize → App embeds → enable **Judge.me Core**
+3. Product template → Add block → Apps → **Judge.me Review Widget** (place below FAQ/size guide)
+4. Add the **Judge.me Star Rating badge** block under the product title —
+   this replaces the placeholder rating-stars snippet with real, auto-updating data
+5. In Judge.me settings: star color Terracotta `#C1663A`, text Espresso
+   `#3B2417`; enable automatic review request email **14 days after
+   fulfillment**; enable photo reviews; verified-buyer badge on
+
+**Incentivized reviews (if offered):** reward must apply to any honest review,
+not just positive ones, and Judge.me's incentive-disclosure labeling must be on
+— that's the FTC/Whop-compliant configuration.
+
+**Empty state (before first reviews):** use
+`snippets/reviews-invite-custom-liquid.html` above the widget, plus Judge.me's
+default "Be the first to write a review" form. Never seed with fabricated
+reviews.
+
+**Growing reviews:** automated day-14 ask, a QR-code review card in every
+package, and the disclosed incentive above. Stars appear in the buy box and
+Google results automatically once reviews accumulate.
 
 ---
 
