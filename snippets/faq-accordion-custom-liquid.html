@@ -1,0 +1,86 @@
+{% comment %}
+  FAQ ACCORDION — The Seal Tee (Slow Pour Society)
+  Native <details>/<summary> accordion, no JavaScript needed.
+  Update the Refund Policy link href to your store's actual policy URL.
+{% endcomment %}
+
+<style>
+  .faq-accordion {
+    margin: 16px 0;
+    font-family: inherit;
+  }
+  .faq-accordion__title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #3B2417; /* Espresso */
+    margin: 0 0 12px;
+  }
+  .faq-item {
+    background: #F3EDE3; /* Oat */
+    border: 1px solid #D8C3A5; /* Kraft */
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3B2417; /* Espresso */
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 18px;
+    font-weight: 700;
+    color: #C1663A; /* Terracotta */
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+  .faq-item__answer {
+    padding: 0 16px 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #3B2417; /* Espresso */
+  }
+  .faq-item__answer a {
+    color: #C1663A; /* Terracotta */
+    font-weight: 600;
+  }
+</style>
+
+<div class="faq-accordion">
+  <p class="faq-accordion__title">Frequently Asked Questions</p>
+
+  <details class="faq-item">
+    <summary>What material is the tee made of?</summary>
+    <div class="faq-item__answer">
+      100% heavyweight cotton (~6oz), unisex fit that runs true to size. Built to hold up — soft, structured, and not see-through after a few washes.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>How long does shipping take?</summary>
+    <div class="faq-item__answer">
+      Every Seal Tee is printed to order, so please allow 2–5 business days for production before it ships. You'll get a tracking link as soon as it's on its way.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>What's your return/exchange policy?</summary>
+    <div class="faq-item__answer">
+      Since each tee is made to order specifically for you, we don't accept returns for size/preference changes — but if your item arrives damaged or defective, we'll replace it or refund you, no questions asked. See our full <a href="/policies/refund-policy">Refund Policy</a> for details.
+    </div>
+  </details>
+</div>
