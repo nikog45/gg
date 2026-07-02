@@ -75,6 +75,9 @@ export async function shopifyGraphQL<T = any>(
 }
 
 export function hasThemeScopes(scope: string): boolean {
+  // Dev-dashboard tokens may report scopes in a different format (or not at all),
+  // so an empty scope string is treated as unknown rather than missing.
+  if (!scope.trim()) return true;
   return scope.includes("read_themes") && scope.includes("write_themes");
 }
 
