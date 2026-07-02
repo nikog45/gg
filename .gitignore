@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+.env.local
+.env*.local
+config/page-builder.json
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
