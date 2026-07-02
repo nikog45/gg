@@ -1,0 +1,100 @@
+<style>
+  .urgency-bar-wrap {
+    background: #F3EDE3; /* Oat */
+    border: 1px solid #D8C3A5; /* Kraft */
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-family: inherit;
+  }
+  .urgency-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #3B2417; /* Espresso */
+    margin-bottom: 2px;
+  }
+  .urgency-subtitle {
+    font-size: 12px;
+    color: #7C8471; /* Sage */
+    margin-bottom: 10px;
+  }
+  .urgency-bar-track {
+    width: 100%;
+    background: #D8C3A5; /* Kraft */
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .urgency-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #C1663A, #D9A05B); /* Terracotta -> warm amber */
+    border-radius: 999px;
+    transition: width 0.3s ease;
+  }
+  .urgency-bar-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #3B2417; /* Espresso */
+  }
+  .urgency-bar-meta .sold {
+    font-weight: 600;
+    color: #3B2417; /* Espresso */
+  }
+  .urgency-bar-meta .countdown {
+    color: #C1663A; /* Terracotta */
+    font-weight: 600;
+  }
+  .urgency-bar-meta .countdown span {
+    font-weight: 700;
+    color: #C1663A; /* Terracotta */
+  }
+</style>
+<div class="urgency-bar-wrap">
+  <div class="urgency-title">In esaurimento</div>
+  <div class="urgency-subtitle">Alta richiesta · disponibilità limitata</div>
+  <div class="urgency-bar-track">
+    <div class="urgency-bar-fill" id="urgency-fill" style="width: 92%;"></div>
+  </div>
+  <div class="urgency-bar-meta">
+    <span class="sold" id="urgency-sold">92% venduto</span>
+    <span class="countdown">Termina tra <span id="urgency-countdown">12:00:00</span></span>
+  </div>
+</div>
+<script>
+  (function() {
+    var countdownSeconds = 12 * 60 * 60;
+    var storageKey = 'urgency_end_time';
+    var endTime = sessionStorage.getItem(storageKey);
+    if (!endTime) {
+      endTime = Date.now() + countdownSeconds * 1000;
+      sessionStorage.setItem(storageKey, endTime);
+    } else {
+      endTime = parseInt(endTime);
+      if (Date.now() > endTime) {
+        endTime = Date.now() + countdownSeconds * 1000;
+        sessionStorage.setItem(storageKey, endTime);
+      }
+    }
+    function updateCountdown() {
+      var now = Date.now();
+      var remaining = Math.max(0, Math.floor((endTime - now) / 1000));
+      var hours   = Math.floor(remaining / 3600);
+      var minutes = Math.floor((remaining % 3600) / 60);
+      var seconds = remaining % 60;
+      var display =
+        String(hours).padStart(2, '0') + ':' +
+        String(minutes).padStart(2, '0') + ':' +
+        String(seconds).padStart(2, '0');
+      var el = document.getElementById('urgency-countdown');
+      if (el) el.textContent = display;
+      if (remaining > 0) {
+        setTimeout(updateCountdown, 1000);
+      } else {
+        sessionStorage.removeItem('urgency_end_time');
+      }
+    }
+    updateCountdown();
+  })();
+</script>

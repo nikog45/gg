@@ -1,0 +1,106 @@
+{% comment %} Calculate timestamps: today, tomorrow (+1 day), day 4 (+4 days) {% endcomment %}
+{% assign now_ts = 'now' | date: '%s' | plus: 0 %}
+{% assign ts_1 = now_ts | plus: 86400 %}
+{% assign ts_4 = now_ts | plus: 345600 %}
+{% comment %} Day numbers {% endcomment %}
+{% assign d0_num = now_ts | date: '%-d' | plus: 0 %}
+{% assign d1_num = ts_1   | date: '%-d' | plus: 0 %}
+{% assign d4_num = ts_4   | date: '%-d' | plus: 0 %}
+{% comment %} Month numbers {% endcomment %}
+{% assign m0_num = now_ts | date: '%-m' | plus: 0 %}
+{% assign m1_num = ts_1   | date: '%-m' | plus: 0 %}
+{% assign m4_num = ts_4   | date: '%-m' | plus: 0 %}
+{% comment %} English month abbreviations {% endcomment %}
+{% capture month_lookup %}Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec{% endcapture %}
+{% assign months_it = month_lookup | split: ',' %}
+{% assign m0_idx = m0_num | minus: 1 %}
+{% assign m1_idx = m1_num | minus: 1 %}
+{% assign m4_idx = m4_num | minus: 1 %}
+{% assign m0_it = months_it[m0_idx] %}
+{% assign m1_it = months_it[m1_idx] %}
+{% assign m4_it = months_it[m4_idx] %}
+<style>
+  .shipping-checkpoints {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+  .shipping-checkpoints__bar {
+    position: absolute;
+    top: 20px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background-color: currentColor;
+    z-index: 0;
+  }
+  .shipping-checkpoint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .shipping-checkpoint__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: currentColor;
+    margin-bottom: 8px;
+  }
+  .shipping-checkpoint__icon .material-icon {
+    color: #fff;
+    font-size: 20px;
+  }
+  .shipping-checkpoint__top {
+    font-size: 13px;
+    margin: 0 0 2px;
+  }
+  .shipping-checkpoint__bottom {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+<div class="shipping-checkpoints color-accent-1">
+  <div class="shipping-checkpoints__bar color-accent-1"></div>
+  <!-- Step 1: Ordered (today) -->
+  <div class="shipping-checkpoint">
+    <div class="shipping-checkpoint__icon flex-center color-accent-1">
+      <span class="material-icon material-symbols-outlined">add_shopping_cart</span>
+    </div>
+    <p class="shipping-checkpoint__top">
+      <strong>{{ d0_num }} {{ m0_it }}</strong>
+    </p>
+    <p class="shipping-checkpoint__bottom">Ordered</p>
+  </div>
+  <!-- Step 2: Preparing (tomorrow) -->
+  <div class="shipping-checkpoint">
+    <div class="shipping-checkpoint__icon flex-center color-accent-1">
+      <span class="material-icon material-symbols-outlined">local_shipping</span>
+    </div>
+    <p class="shipping-checkpoint__top">
+      <strong>{{ d1_num }} {{ m1_it }}</strong>
+    </p>
+    <p class="shipping-checkpoint__bottom">Preparing</p>
+  </div>
+  <!-- Step 3: Delivered (day 4) -->
+  <div class="shipping-checkpoint">
+    <div class="shipping-checkpoint__icon flex-center color-accent-1">
+      <span class="material-icon material-symbols-outlined">redeem</span>
+    </div>
+    <p class="shipping-checkpoint__top">
+      <strong>{{ d4_num }} {{ m4_it }}</strong>
+    </p>
+    <p class="shipping-checkpoint__bottom">Delivered</p>
+  </div>
+</div>
