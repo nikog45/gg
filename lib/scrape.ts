@@ -97,7 +97,7 @@ async function fetchHtml(url: string): Promise<string> {
   );
 }
 
-function parseHtml(sourceUrl: string, html: string): ScrapedProduct {
+export function parseHtml(sourceUrl: string, html: string): ScrapedProduct {
   const ld = findJsonLdProduct(html);
 
   const title = ld?.name ?? extractTag(html, "title") ?? "";
@@ -167,7 +167,12 @@ function collectImages(pageUrl: string, html: string, ld: any, title: string): s
   }
   const og = html.match(/<meta[^>]+property=["']og:image(?::secure_url)?["'][^>]+content=["']([^"']+)["']/i)
     ?? html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image(?::secure_url)?["']/i);
-  push(og?.[1]);
+  push(og?.[1] ? decodeEntities(og[1]) : null);
+
+  // 1b) Embedded JSON galleries: SPA storefronts (Unieuro etc.) ship the gallery
+  //     in a JSON blob like "images":[{"altText":"...","url":"/medias/...jpg"}]
+  //     with only one <img> in the visible HTML.
+  collectJsonGalleryImages(html, significantWords(title), push);
 
   // 2) Gallery images: <img> whose alt shares ≥2 significant words with the title.
   //    Gallery images carry the product name in their alt text; nav/related images don't.
@@ -208,7 +213,61 @@ function significantWords(text: string): Set<string> {
 
 function attr(tag: string, name: string): string | null {
   const m = tag.match(new RegExp(`${name}\\s*=\\s*["']([^"']*)["']`, "i"));
-  return m ? m[1] : null;
+  return m ? decodeEntities(m[1]) : null; // src attrs often carry &amp; in query strings
+}
+
+// Finds "images": [ ... ] arrays in embedded JSON and pulls product image URLs
+// out of them. Entries that carry an altText must share ≥2 significant words
+// with the product title (same rule as <img> alt matching); URL-only entries
+// must look like media paths.
+function collectJsonGalleryImages(html: string, titleWords: Set<string>, push: (u: string | null) => void) {
+  const arrays = [...html.matchAll(/"images"\s*:\s*\[/g)].slice(0, 5);
+  for (const m of arrays) {
+    const span = balancedSpan(html, m.index! + m[0].length - 1, 30000);
+    if (!span) continue;
+
+    const objects = [...span.matchAll(/\{[^{}]*\}/g)];
+    let matchedAny = false;
+    for (const obj of objects) {
+      const urlMatch = obj[0].match(/"(?:url|src|href|image)"\s*:\s*"([^"]+)"/);
+      if (!urlMatch) continue;
+      const url = urlMatch[1].replace(/\\\//g, "/");
+      const altMatch = obj[0].match(/"(?:altText|alt|title|name)"\s*:\s*"([^"]*)"/);
+      if (altMatch) {
+        const altWords = significantWords(decodeEntities(altMatch[1]));
+        let overlap = 0;
+        for (const w of altWords) if (titleWords.has(w)) overlap++;
+        if (overlap < 2) continue;
+      } else if (!/\/(medias?|images?|assets|cdn|photos?)\//i.test(url) && !/\.(jpe?g|png|webp|avif)(\?|$)/i.test(url)) {
+        continue;
+      }
+      push(url);
+      matchedAny = true;
+    }
+
+    // Plain string arrays: "images": ["https://...", "/media/..."]
+    if (!objects.length && !matchedAny) {
+      for (const s of span.matchAll(/"((?:https?:)?\/[^"]+?\.(?:jpe?g|png|webp|avif)[^"]*)"/gi)) {
+        push(s[1].replace(/\\\//g, "/"));
+      }
+    }
+  }
+}
+
+// Returns the substring of a balanced [...] starting at openIndex (which must
+// point at "["), or null if unbalanced within maxLen.
+function balancedSpan(text: string, openIndex: number, maxLen: number): string | null {
+  let depth = 0;
+  const end = Math.min(text.length, openIndex + maxLen);
+  for (let i = openIndex; i < end; i++) {
+    const ch = text[i];
+    if (ch === "[") depth++;
+    else if (ch === "]") {
+      depth--;
+      if (depth === 0) return text.slice(openIndex, i + 1);
+    }
+  }
+  return null;
 }
 
 function bestSrcsetCandidate(srcset: string | null): string | null {
@@ -229,10 +288,13 @@ function absolutize(url: string, base: string): string {
   }
 }
 
-// Strips CDN resize params (?width=70&crop=1:1 etc.) so we store full-resolution images.
+// Strips CDN resize params (?width=70&crop=1:1, MediaMarkt-style ?x=536&y=402, etc.)
+// so we store full-resolution images.
 const RESIZE_PARAMS = new Set([
   "width", "height", "w", "h", "crop", "fit", "quality", "q", "size",
   "resize", "scale", "sw", "sh", "sfrm", "format", "fmt", "dpr", "auto", "im",
+  "x", "y", "ex", "ey", "cox", "coy", "cdx", "cdy", "trim", "align",
+  "sp", "strip", "unsharp", "resizesource",
 ]);
 
 function cleanImageUrl(raw: string | null | undefined): string | null {
@@ -245,16 +307,17 @@ function cleanImageUrl(raw: string | null | undefined): string | null {
   }
   if (!/^https?:$/.test(url.protocol)) return null;
   url.protocol = "https:"; // normalize so http/https duplicates dedupe
-  if (!/\.(jpe?g|png|webp|avif|gif)(\?|$)/i.test(url.pathname + "?")
-      && !/\.(jpe?g|png|webp|avif|gif)$/i.test(url.pathname)) {
-    // Allow extension-less CDN URLs too — just don't reject outright if the host looks like a CDN.
-    if (!/cdn|image|img|media/i.test(url.hostname + url.pathname)) return null;
-  }
+  // These URLs all come from declared sources (JSON-LD / og:image / embedded JSON
+  // galleries / alt-matched imgs), so extension-less CDN URLs are fine — only
+  // reject obvious non-photos.
+  if (/\.(svg|ico|css|js|pdf|mp4|webm)(\?|$)/i.test(url.pathname)) return null;
   for (const key of [...url.searchParams.keys()]) {
     if (RESIZE_PARAMS.has(key.toLowerCase())) url.searchParams.delete(key);
   }
   // Shopify-style size suffix: /foo_600x600.jpg → /foo.jpg
   url.pathname = url.pathname.replace(/_(?:\d+x\d*|\d*x\d+|pico|icon|thumb|small|compact|medium|large|grande)(\.[a-z]+)$/i, "$1");
+  // MediaMarkt/MediaWorld-style trailing size segment: /ASSET_MMS_123/fee_786_587_png → /ASSET_MMS_123
+  url.pathname = url.pathname.replace(/\/fee_\d+_\d+_[a-z]+$/i, "");
   return url.toString();
 }
 
