@@ -1,0 +1,397 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "liquid_CbLi6g": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-trust-stars' %}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "liquid_Pj4de3": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-delivery-info' %}"
+          }
+        },
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e": {
+          "type": "badges",
+          "settings": {}
+        },
+        "03986d94-ceda-470b-a533-0254dd7863c6": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "dropdown",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "579d5724-6e2a-4577-9150-106ad1d6ab25": {
+          "type": "image",
+          "settings": {
+            "alignment": "center",
+            "max_width": 400
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "conversion_bear_trust_badges_widget_VGPpkG": {
+          "type": "shopify://apps/conversion-bear-trust-badges/blocks/widget/163a9b59-0ec2-4cb7-bf5c-31408b4a9420",
+          "settings": {}
+        },
+        "liquid_HWXdjF": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-urgency-bar' %}"
+          }
+        },
+        "liquid_gqWXAD": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-shipping-steps' %}"
+          }
+        },
+        "description_HPVNUc": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true
+          }
+        },
+        "collapsible_text_XWDpG9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Autenticità",
+            "content": "<p>Garantiamo che ogni articolo ricevuto sia 100% autentico e nuovo di fabbrica. Ogni prodotto viene attentamente ispezionato dal nostro team per assicurarci che soddisfi gli elevati standard di qualità su cui ci impegniamo.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_Cw8yU9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Spedizione & Resi",
+            "content": "<p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "liquid_CbLi6g",
+        "price",
+        "liquid_Pj4de3",
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e",
+        "03986d94-ceda-470b-a533-0254dd7863c6",
+        "579d5724-6e2a-4577-9150-106ad1d6ab25",
+        "buy_buttons",
+        "conversion_bear_trust_badges_widget_VGPpkG",
+        "liquid_HWXdjF",
+        "liquid_gqWXAD",
+        "description_HPVNUc",
+        "collapsible_text_XWDpG9",
+        "collapsible_text_Cw8yU9"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "grid_highlight",
+        "mobile_media_size": "contained",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "image_with_text_overlay_bR3kpm": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_FRK4bC": {
+          "type": "heading",
+          "settings": {
+            "text": "La città, senza fatica",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_JLeT6F": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Ruote da 26\", telaio in acciaio inox e pedalata assistita fino a <strong>50 km</strong> di autonomia: la TEKLIO TC2A6SLG rende leggeri i tragitti quotidiani, anche in salita.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FRK4bC",
+        "richtext_JLeT6F"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-0655fed47e634d708629901ee97c91c3-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "media_with_text_7PTXdn": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_gArV6U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-5275bdd300c781a552d28fe0a671ef16-preview-sgmConversionBaseFormat.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Robusta fuori, leggera da vivere",
+            "content": "<p>Il telaio in <strong>acciaio inox</strong> resiste a pioggia e uso quotidiano, mentre cerchioni e reggisella in <strong>alluminio</strong> alleggeriscono la struttura (27,5 kg batteria inclusa).</p><p>La batteria agli <strong>ioni di litio da 10,4 Ah</strong> ti accompagna fino a 50 km con pedalata assistita: perfetta per il lavoro, le commissioni e le gite fuori porta.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_gArV6U"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "spacing": "small"
+      }
+    },
+    "blocks_4biXnk": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c8ea303_zCNj9j": {
+          "type": "ai_gen_block_c8ea303",
+          "settings": {
+            "main_heading": "Caratteristiche prodotto",
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_spacing": 40,
+            "column_1_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-993fa745f768765456e2442ad129385b-preview-sgmConversionBaseFormat.jpg",
+            "column_1_heading": "Comandi al manubrio",
+            "column_1_description": "<p>Display e comandi a portata di pollice per gestire l'assistenza alla pedalata</p>",
+            "column_2_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-95139ead539e6b1dd67f028ff1c9549c-preview-sgmConversionBaseFormat.jpg",
+            "column_2_heading": "Batteria da 10,4 Ah",
+            "column_2_description": "<p>Batteria agli ioni di litio sul portapacchi, fino a 50 km di autonomia</p>",
+            "column_3_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-f0441a80c33cf716df92921a8835e8fa-preview-sgmConversionBaseFormat.jpg",
+            "column_3_heading": "Cambio preciso",
+            "column_3_description": "<p>Trasmissione a più rapporti per affrontare salite e percorsi misti</p>",
+            "column_4_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-a21b2d22f5ef9fbd9b23859b456d8b79-preview-sgmConversionBaseFormat.jpg",
+            "column_4_heading": "Componenti robusti",
+            "column_4_description": "<p>Forcella e cerchi progettati per l'uso quotidiano in città</p>",
+            "desktop_width_percent": 100,
+            "section_padding": 40,
+            "column_gap": 30,
+            "column_heading_size": 18,
+            "column_heading_color": "#000000",
+            "column_heading_spacing": 10,
+            "description_size": 14,
+            "description_color": "#303030",
+            "image_spacing": 20,
+            "image_border_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c8ea303_zCNj9j"
+      ],
+      "name": "Four column features",
+      "settings": {}
+    },
+    "faq_LBEg7R": {
+      "type": "faq",
+      "blocks": {
+        "item_khRKkE": {
+          "type": "item",
+          "settings": {
+            "title": "Quanto tempo ci vuole prima di ricevere il mio articolo?",
+            "content": "<p>Offriamo spedizione veloce con corriere espresso e tracciamento.</p><p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>"
+          }
+        },
+        "item_Q37jET": {
+          "type": "item",
+          "settings": {
+            "title": "Posso restituire il mio ordine?",
+            "content": "<p>Sì, se hai effettuato l'ordine online hai il diritto di restituire o cambiare la merce entro 30 giorni dalla ricezione dell'ordine iniziale (in base alla disponibilità).</p>"
+          }
+        },
+        "item_98WjwX": {
+          "type": "item",
+          "settings": {
+            "title": "Quanta autonomia ha la batteria?",
+            "content": "<p>La batteria agli ioni di litio da 10,4 Ah garantisce fino a 50 km di autonomia in modalità pedalata assistita, in base a percorso, peso e livello di assistenza scelto.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_khRKkE",
+        "item_Q37jET",
+        "item_98WjwX"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Domande Frequenti",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "Il nostro servizio clienti è disponibile dal lunedì al venerdì: 8:00 – 20:30.",
+        "answer_time": "Risposta media entro 24h",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "review_carousel_EJ8GbG": {
+      "type": "review-carousel",
+      "blocks": {
+        "review_Udt7MB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-0655fed47e634d708629901ee97c91c3-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+            "review_text": "La uso tutti i giorni per andare al lavoro, 12 km senza fatica e senza sudare. Comoda e stabile anche col pavé.",
+            "reviewer_name": "Giorgio"
+          }
+        },
+        "review_4KdHEk": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-49a7b964ffe66c82298e7275ef5a660d-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Montaggio semplice, era quasi tutta assemblata. La pedalata assistita spinge bene in salita.",
+            "reviewer_name": "Serena"
+          }
+        },
+        "review_Q3wgkB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-def92743a35361aaca61062ec03b84bf-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Bella solida, si sente la qualità del telaio. La batteria dura davvero tanto, la ricarico due volte a settimana.",
+            "reviewer_name": "Antonio"
+          }
+        },
+        "review_44MHtp": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-757b5dafa9a7cb2718d3ddc94208e3d0-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Perfetta per la città, comoda la posizione di guida dritta. Arrivata prima del previsto.",
+            "reviewer_name": "Lucia"
+          }
+        },
+        "review_8Pmj3A": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-5275bdd300c781a552d28fe0a671ef16-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Ottimo rapporto qualità prezzo per una e-bike. Freni e cambio funzionano bene fin da subito.",
+            "reviewer_name": "Piero"
+          }
+        },
+        "review_j3QcfJ": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-b183b23abcf7b7f04adfa8acd7f6354a-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Regalata a mia moglie, ora la usa più lei dell'auto. Consigliata a chi si muove in città.",
+            "reviewer_name": "Massimo"
+          }
+        }
+      },
+      "block_order": [
+        "review_Udt7MB",
+        "review_4KdHEk",
+        "review_Q3wgkB",
+        "review_44MHtp",
+        "review_8Pmj3A",
+        "review_j3QcfJ"
+      ],
+      "name": "Review Carousel",
+      "settings": {}
+    },
+    "loox-product-reviews-app-section": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "1712573616eb38d664": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_bR3kpm",
+    "media_with_text_7PTXdn",
+    "blocks_4biXnk",
+    "faq_LBEg7R",
+    "review_carousel_EJ8GbG",
+    "loox-product-reviews-app-section",
+    "1712573616eb38d664"
+  ]
+}

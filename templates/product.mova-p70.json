@@ -1,0 +1,397 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "liquid_CbLi6g": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-trust-stars' %}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "liquid_Pj4de3": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-delivery-info' %}"
+          }
+        },
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e": {
+          "type": "badges",
+          "settings": {}
+        },
+        "03986d94-ceda-470b-a533-0254dd7863c6": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "dropdown",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "579d5724-6e2a-4577-9150-106ad1d6ab25": {
+          "type": "image",
+          "settings": {
+            "alignment": "center",
+            "max_width": 400
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "conversion_bear_trust_badges_widget_VGPpkG": {
+          "type": "shopify://apps/conversion-bear-trust-badges/blocks/widget/163a9b59-0ec2-4cb7-bf5c-31408b4a9420",
+          "settings": {}
+        },
+        "liquid_HWXdjF": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-urgency-bar' %}"
+          }
+        },
+        "liquid_gqWXAD": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-shipping-steps' %}"
+          }
+        },
+        "description_HPVNUc": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true
+          }
+        },
+        "collapsible_text_XWDpG9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Autenticità",
+            "content": "<p>Garantiamo che ogni articolo ricevuto sia 100% autentico e nuovo di fabbrica. Ogni prodotto viene attentamente ispezionato dal nostro team per assicurarci che soddisfi gli elevati standard di qualità su cui ci impegniamo.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_Cw8yU9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Spedizione & Resi",
+            "content": "<p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "liquid_CbLi6g",
+        "price",
+        "liquid_Pj4de3",
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e",
+        "03986d94-ceda-470b-a533-0254dd7863c6",
+        "579d5724-6e2a-4577-9150-106ad1d6ab25",
+        "buy_buttons",
+        "conversion_bear_trust_badges_widget_VGPpkG",
+        "liquid_HWXdjF",
+        "liquid_gqWXAD",
+        "description_HPVNUc",
+        "collapsible_text_XWDpG9",
+        "collapsible_text_Cw8yU9"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "grid_highlight",
+        "mobile_media_size": "contained",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "image_with_text_overlay_bR3kpm": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_FRK4bC": {
+          "type": "heading",
+          "settings": {
+            "text": "Aspira e lava, mentre tu pensi ad altro",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_JLeT6F": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Con <strong>30.000 Pa</strong> di potenza e doppi moci rotanti, il MOVA P70 Pro Ultra pulisce a fondo ogni stanza e torna da solo alla stazione base, che svuota, lava e asciuga tutto automaticamente.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FRK4bC",
+        "richtext_JLeT6F"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-ebc2e2931d35cc302e0ac34904cb653a-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 25
+      }
+    },
+    "media_with_text_7PTXdn": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_gArV6U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-a28adad072877c2ad6a6211924a25f9e-preview-sgmConversionBaseFormat-sgmSearchFormat.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Stazione base tutto-in-uno",
+            "content": "<p>La base inclusa <strong>svuota automaticamente</strong> il contenitore della polvere, lava i moci e li asciuga con <strong>aria calda PTC a 100 °C</strong>: in circa un'ora sono asciutti, igienizzati e senza odori.</p><p>Meno manutenzione, più tempo libero: al P70 Pro Ultra basta la sua stazione per prendersi cura della casa in totale autonomia.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_gArV6U"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "spacing": "small"
+      }
+    },
+    "blocks_4biXnk": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c8ea303_zCNj9j": {
+          "type": "ai_gen_block_c8ea303",
+          "settings": {
+            "main_heading": "Caratteristiche prodotto",
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_spacing": 40,
+            "column_1_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-c2b68d89606d3b3db8dedb87d8392ff7-preview-sgmConversionBaseFormat.jpg",
+            "column_1_heading": "Visione AI",
+            "column_1_description": "<p>Riconosce ostacoli e sporco e adatta la pulizia stanza per stanza</p>",
+            "column_2_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-c01c07f3283af1bf6da7f056f8579505-preview-sgmConversionBaseFormat.jpg",
+            "column_2_heading": "Manutenzione automatica",
+            "column_2_description": "<p>Svuotamento, lavaggio dei moci e asciugatura avvengono da soli nella stazione base</p>",
+            "column_3_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-0291a14a9ded0e044312583a8ffd0c7e-preview-sgmConversionBaseFormat.jpg",
+            "column_3_heading": "Anti-groviglio",
+            "column_3_description": "<p>Triplo sistema che evita grovigli di capelli e peli nella spazzola</p>",
+            "column_4_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-5495b4cc24fcce0785217de202ee9874-preview-sgmConversionBaseFormat.jpg",
+            "column_4_heading": "Bordi e angoli",
+            "column_4_description": "<p>Spazzola laterale e mocio estensibili raggiungono con precisione bordi e angoli</p>",
+            "desktop_width_percent": 100,
+            "section_padding": 40,
+            "column_gap": 30,
+            "column_heading_size": 18,
+            "column_heading_color": "#000000",
+            "column_heading_spacing": 10,
+            "description_size": 14,
+            "description_color": "#303030",
+            "image_spacing": 20,
+            "image_border_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c8ea303_zCNj9j"
+      ],
+      "name": "Four column features",
+      "settings": {}
+    },
+    "faq_LBEg7R": {
+      "type": "faq",
+      "blocks": {
+        "item_khRKkE": {
+          "type": "item",
+          "settings": {
+            "title": "Quanto tempo ci vuole prima di ricevere il mio articolo?",
+            "content": "<p>Offriamo spedizione veloce con corriere espresso e tracciamento.</p><p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>"
+          }
+        },
+        "item_Q37jET": {
+          "type": "item",
+          "settings": {
+            "title": "Posso restituire il mio ordine?",
+            "content": "<p>Sì, se hai effettuato l'ordine online hai il diritto di restituire o cambiare la merce entro 30 giorni dalla ricezione dell'ordine iniziale (in base alla disponibilità).</p>"
+          }
+        },
+        "item_98WjwX": {
+          "type": "item",
+          "settings": {
+            "title": "Devo svuotare il robot manualmente?",
+            "content": "<p>No: al termine di ogni pulizia il P70 Pro Ultra torna alla stazione base, che svuota il contenitore della polvere, lava i moci e li asciuga con aria calda a 100 °C in circa un'ora.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_khRKkE",
+        "item_Q37jET",
+        "item_98WjwX"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Domande Frequenti",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "Il nostro servizio clienti è disponibile dal lunedì al venerdì: 8:00 – 20:30.",
+        "answer_time": "Risposta media entro 24h",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "review_carousel_EJ8GbG": {
+      "type": "review-carousel",
+      "blocks": {
+        "review_Udt7MB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-a28adad072877c2ad6a6211924a25f9e-preview-sgmConversionBaseFormat-sgmSearchFormat.jpg",
+            "review_text": "Lo avvio dall'app quando esco e torno a casa con i pavimenti puliti e i moci già lavati e asciutti. La stazione fa davvero tutto da sola.",
+            "reviewer_name": "Paolo"
+          }
+        },
+        "review_4KdHEk": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-51762592c54af3f7ec006ec0e3f31cf1-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Il lavaggio è sorprendente, toglie anche le impronte del cane in cucina. Aspirazione potentissima sui tappeti.",
+            "reviewer_name": "Chiara"
+          }
+        },
+        "review_Q3wgkB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-c01c07f3283af1bf6da7f056f8579505-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "La base che asciuga i moci con aria calda evita i cattivi odori, differenza enorme rispetto al robot che avevo prima.",
+            "reviewer_name": "Andrea"
+          }
+        },
+        "review_44MHtp": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-5495b4cc24fcce0785217de202ee9874-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Arriva bene negli angoli e lungo i battiscopa con la spazzola che si allunga. Mappatura precisa fin dal primo giro.",
+            "reviewer_name": "Martina"
+          }
+        },
+        "review_8Pmj3A": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-c2b68d89606d3b3db8dedb87d8392ff7-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Evita giocattoli e cavi senza incastrarsi, lo lascio lavorare anche quando non ci sono. Ottimo acquisto.",
+            "reviewer_name": "Simone"
+          }
+        },
+        "review_j3QcfJ": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-e12770f7400e0ec8cef5cb7514e7b8af-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Confezione completa di tutto, installazione in dieci minuti. Spedizione rapida e ben imballata.",
+            "reviewer_name": "Elena"
+          }
+        }
+      },
+      "block_order": [
+        "review_Udt7MB",
+        "review_4KdHEk",
+        "review_Q3wgkB",
+        "review_44MHtp",
+        "review_8Pmj3A",
+        "review_j3QcfJ"
+      ],
+      "name": "Review Carousel",
+      "settings": {}
+    },
+    "loox-product-reviews-app-section": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "1712573616eb38d664": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_bR3kpm",
+    "media_with_text_7PTXdn",
+    "blocks_4biXnk",
+    "faq_LBEg7R",
+    "review_carousel_EJ8GbG",
+    "loox-product-reviews-app-section",
+    "1712573616eb38d664"
+  ]
+}

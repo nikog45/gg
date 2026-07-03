@@ -1,0 +1,290 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "liquid_CbLi6g": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-trust-stars' %}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "liquid_Pj4de3": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-delivery-info' %}"
+          }
+        },
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e": {
+          "type": "badges",
+          "settings": {}
+        },
+        "03986d94-ceda-470b-a533-0254dd7863c6": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "dropdown",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "579d5724-6e2a-4577-9150-106ad1d6ab25": {
+          "type": "image",
+          "settings": {
+            "alignment": "center",
+            "max_width": 400
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "conversion_bear_trust_badges_widget_VGPpkG": {
+          "type": "shopify://apps/conversion-bear-trust-badges/blocks/widget/163a9b59-0ec2-4cb7-bf5c-31408b4a9420",
+          "settings": {}
+        },
+        "liquid_HWXdjF": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-urgency-bar' %}"
+          }
+        },
+        "liquid_gqWXAD": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-shipping-steps' %}"
+          }
+        },
+        "description_HPVNUc": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true
+          }
+        },
+        "collapsible_text_XWDpG9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Autenticità",
+            "content": "<p>Garantiamo che ogni articolo ricevuto sia 100% autentico e nuovo di fabbrica. Ogni prodotto viene attentamente ispezionato dal nostro team per assicurarci che soddisfi gli elevati standard di qualità su cui ci impegniamo.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_Cw8yU9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Spedizione & Resi",
+            "content": "<p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "liquid_CbLi6g",
+        "price",
+        "liquid_Pj4de3",
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e",
+        "03986d94-ceda-470b-a533-0254dd7863c6",
+        "579d5724-6e2a-4577-9150-106ad1d6ab25",
+        "buy_buttons",
+        "conversion_bear_trust_badges_widget_VGPpkG",
+        "liquid_HWXdjF",
+        "liquid_gqWXAD",
+        "description_HPVNUc",
+        "collapsible_text_XWDpG9",
+        "collapsible_text_Cw8yU9"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "grid_highlight",
+        "mobile_media_size": "contained",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "image_with_text_overlay_bR3kpm": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_FRK4bC": {
+          "type": "heading",
+          "settings": {
+            "text": "Epilazione a luce pulsata, a casa tua",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_JLeT6F": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Il Silk-expert Pro 5 riduce progressivamente la ricrescita dei peli su gambe, braccia, viso e zona bikini: pelle più liscia con risultati visibili nel tempo, senza costosi trattamenti in salone.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FRK4bC",
+        "richtext_JLeT6F"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-367855680e8b1bc06467d7a0bcb04610-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "media_with_text_7PTXdn": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_gArV6U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-367855680e8b1bc06467d7a0bcb04610-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Tecnologia IPL sicura ed efficace",
+            "content": "<p>La tecnologia a <strong>luce pulsata intensa (IPL)</strong> agisce direttamente sul pelo per trattamenti efficaci e duraturi direttamente a casa tua.</p><p>Il design elegante in <strong>bianco e oro</strong>, compatto (70 x 55 x 222 mm) e maneggevole, lo rende un accessorio raffinato della tua beauty routine. In confezione trovi anche gli accessori dedicati e la custodia.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_gArV6U"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "spacing": "small"
+      }
+    },
+    "faq_LBEg7R": {
+      "type": "faq",
+      "blocks": {
+        "item_khRKkE": {
+          "type": "item",
+          "settings": {
+            "title": "Quanto tempo ci vuole prima di ricevere il mio articolo?",
+            "content": "<p>Offriamo spedizione veloce con corriere espresso e tracciamento.</p><p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>"
+          }
+        },
+        "item_Q37jET": {
+          "type": "item",
+          "settings": {
+            "title": "Posso restituire il mio ordine?",
+            "content": "<p>Sì, se hai effettuato l'ordine online hai il diritto di restituire o cambiare la merce entro 30 giorni dalla ricezione dell'ordine iniziale (in base alla disponibilità).</p>"
+          }
+        },
+        "item_98WjwX": {
+          "type": "item",
+          "settings": {
+            "title": "Posso usarlo su viso e zona bikini?",
+            "content": "<p>Sì: il Silk-expert Pro 5 è pensato per l'uso domestico su gambe, braccia, viso e zona bikini, per una pelle più liscia con risultati visibili nel tempo.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_khRKkE",
+        "item_Q37jET",
+        "item_98WjwX"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Domande Frequenti",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "Il nostro servizio clienti è disponibile dal lunedì al venerdì: 8:00 – 20:30.",
+        "answer_time": "Risposta media entro 24h",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "loox-product-reviews-app-section": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "1712573616eb38d664": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_bR3kpm",
+    "media_with_text_7PTXdn",
+    "faq_LBEg7R",
+    "loox-product-reviews-app-section",
+    "1712573616eb38d664"
+  ]
+}

@@ -1,0 +1,397 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "liquid_CbLi6g": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-trust-stars' %}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "liquid_Pj4de3": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-delivery-info' %}"
+          }
+        },
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e": {
+          "type": "badges",
+          "settings": {}
+        },
+        "03986d94-ceda-470b-a533-0254dd7863c6": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "dropdown",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "579d5724-6e2a-4577-9150-106ad1d6ab25": {
+          "type": "image",
+          "settings": {
+            "alignment": "center",
+            "max_width": 400
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "conversion_bear_trust_badges_widget_VGPpkG": {
+          "type": "shopify://apps/conversion-bear-trust-badges/blocks/widget/163a9b59-0ec2-4cb7-bf5c-31408b4a9420",
+          "settings": {}
+        },
+        "liquid_HWXdjF": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-urgency-bar' %}"
+          }
+        },
+        "liquid_gqWXAD": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-shipping-steps' %}"
+          }
+        },
+        "description_HPVNUc": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true
+          }
+        },
+        "collapsible_text_XWDpG9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Autenticità",
+            "content": "<p>Garantiamo che ogni articolo ricevuto sia 100% autentico e nuovo di fabbrica. Ogni prodotto viene attentamente ispezionato dal nostro team per assicurarci che soddisfi gli elevati standard di qualità su cui ci impegniamo.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_Cw8yU9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Spedizione & Resi",
+            "content": "<p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "liquid_CbLi6g",
+        "price",
+        "liquid_Pj4de3",
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e",
+        "03986d94-ceda-470b-a533-0254dd7863c6",
+        "579d5724-6e2a-4577-9150-106ad1d6ab25",
+        "buy_buttons",
+        "conversion_bear_trust_badges_widget_VGPpkG",
+        "liquid_HWXdjF",
+        "liquid_gqWXAD",
+        "description_HPVNUc",
+        "collapsible_text_XWDpG9",
+        "collapsible_text_Cw8yU9"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "grid_highlight",
+        "mobile_media_size": "contained",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "image_with_text_overlay_bR3kpm": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_FRK4bC": {
+          "type": "heading",
+          "settings": {
+            "text": "Comfort perfetto in due ambienti",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_JLeT6F": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Due unità interne da <strong>9000 e 12000 BTU</strong> per raffrescare e riscaldare casa con efficienza, e una silenziosità fino a soli <strong>19 dB(A)</strong> che non disturba nemmeno il sonno.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FRK4bC",
+        "richtext_JLeT6F"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-f855d3018e5ec6fb276969bedbf8bd7a-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "media_with_text_7PTXdn": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_gArV6U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-3dc2eeca7d4b04b3c7c85a25ba364cfe-preview-sgmConversionBaseFormat.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Intelligente, connesso, silenzioso",
+            "content": "<p>Con le funzioni <strong>AI Energy</strong> e <strong>AI Comfort</strong>, il Luzon S2 ottimizza consumi e clima in base alle tue abitudini, mentre la tecnologia <strong>Wearable Good Sleep</strong> con Galaxy Watch e Galaxy Ring regola la temperatura mentre dormi.</p><p>Il <strong>Wi-Fi integrato</strong> ti permette di controllarlo ovunque con l'app SmartThings o con la voce tramite Bixby, Google Assistant e Amazon Alexa.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_gArV6U"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "spacing": "small"
+      }
+    },
+    "blocks_4biXnk": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c8ea303_zCNj9j": {
+          "type": "ai_gen_block_c8ea303",
+          "settings": {
+            "main_heading": "Caratteristiche prodotto",
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_spacing": 40,
+            "column_1_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-3577d25fa7891bacd559c111bb4bd440-preview-sgmConversionBaseFormat_38690921-183b-4dae-bf06-87c7dc4829ea.jpg",
+            "column_1_heading": "Fast Cooling",
+            "column_1_description": "<p>Raffresca rapidamente la stanza per raggiungere subito la temperatura desiderata</p>",
+            "column_2_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-7b2292a86e2e6b23df6020359fa0c75a-preview-sgmConversionBaseFormat.jpg",
+            "column_2_heading": "Easy Filter Plus",
+            "column_2_description": "<p>Filtro con rivestimento antibatterico, facile da estrarre e pulire</p>",
+            "column_3_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-ed56e208d7b5073497c66b671d5c7c2c-preview-sgmConversionBaseFormat.jpg",
+            "column_3_heading": "Unità esterna efficiente",
+            "column_3_description": "<p>Una sola unità esterna alimenta entrambi gli split, per un'installazione più pulita</p>",
+            "column_4_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-b600edec5a14474000f57dcd6bfa9e9d-preview-sgmConversionBaseFormat_e8a4c35b-4bdc-4fe1-9b6a-02f19772b497.jpg",
+            "column_4_heading": "Controllo totale",
+            "column_4_description": "<p>Telecomando incluso, app SmartThings e controllo vocale con Bixby, Google Assistant e Alexa</p>",
+            "desktop_width_percent": 100,
+            "section_padding": 40,
+            "column_gap": 30,
+            "column_heading_size": 18,
+            "column_heading_color": "#000000",
+            "column_heading_spacing": 10,
+            "description_size": 14,
+            "description_color": "#303030",
+            "image_spacing": 20,
+            "image_border_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c8ea303_zCNj9j"
+      ],
+      "name": "Four column features",
+      "settings": {}
+    },
+    "faq_LBEg7R": {
+      "type": "faq",
+      "blocks": {
+        "item_khRKkE": {
+          "type": "item",
+          "settings": {
+            "title": "Quanto tempo ci vuole prima di ricevere il mio articolo?",
+            "content": "<p>Offriamo spedizione veloce con corriere espresso e tracciamento.</p><p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>"
+          }
+        },
+        "item_Q37jET": {
+          "type": "item",
+          "settings": {
+            "title": "Posso restituire il mio ordine?",
+            "content": "<p>Sì, se hai effettuato l'ordine online hai il diritto di restituire o cambiare la merce entro 30 giorni dalla ricezione dell'ordine iniziale (in base alla disponibilità).</p>"
+          }
+        },
+        "item_98WjwX": {
+          "type": "item",
+          "settings": {
+            "title": "Posso controllarlo con lo smartphone?",
+            "content": "<p>Sì: grazie al Wi-Fi integrato puoi gestire entrambe le unità dall'app SmartThings, anche fuori casa, oppure con la voce tramite Bixby, Google Assistant e Amazon Alexa.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_khRKkE",
+        "item_Q37jET",
+        "item_98WjwX"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Domande Frequenti",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "Il nostro servizio clienti è disponibile dal lunedì al venerdì: 8:00 – 20:30.",
+        "answer_time": "Risposta media entro 24h",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "review_carousel_EJ8GbG": {
+      "type": "review-carousel",
+      "blocks": {
+        "review_Udt7MB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-f855d3018e5ec6fb276969bedbf8bd7a-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+            "review_text": "Preso per zona giorno e camera, raffresca in pochi minuti ed è silenziosissimo. Di notte non si sente proprio.",
+            "reviewer_name": "Roberto"
+          }
+        },
+        "review_4KdHEk": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-3dc2eeca7d4b04b3c7c85a25ba364cfe-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Design discreto e app SmartThings comodissima: accendo il clima prima di rientrare a casa. Molto soddisfatto.",
+            "reviewer_name": "Ilaria"
+          }
+        },
+        "review_Q3wgkB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-7b2292a86e2e6b23df6020359fa0c75a-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "La funzione AI Energy tiene i consumi bassi, si nota in bolletta rispetto al vecchio impianto. Consigliato.",
+            "reviewer_name": "Davide"
+          }
+        },
+        "review_44MHtp": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-ed56e208d7b5073497c66b671d5c7c2c-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Unità esterna compatta e silenziosa, i vicini non si lamentano. Qualità Samsung come sempre.",
+            "reviewer_name": "Anna"
+          }
+        },
+        "review_8Pmj3A": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-b600edec5a14474000f57dcd6bfa9e9d-preview-sgmConversionBaseFormat_e8a4c35b-4bdc-4fe1-9b6a-02f19772b497.jpg",
+            "review_text": "Il controllo vocale con Alexa funziona alla grande, comodo quando ho le mani occupate. Arrivato tutto ben imballato.",
+            "reviewer_name": "Matteo"
+          }
+        },
+        "review_j3QcfJ": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-589061a964eb714ee5c41cfad53508c1-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Ottimo rapporto qualità prezzo per un dual split. Riscalda bene anche nelle mezze stagioni.",
+            "reviewer_name": "Francesca"
+          }
+        }
+      },
+      "block_order": [
+        "review_Udt7MB",
+        "review_4KdHEk",
+        "review_Q3wgkB",
+        "review_44MHtp",
+        "review_8Pmj3A",
+        "review_j3QcfJ"
+      ],
+      "name": "Review Carousel",
+      "settings": {}
+    },
+    "loox-product-reviews-app-section": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "1712573616eb38d664": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_bR3kpm",
+    "media_with_text_7PTXdn",
+    "blocks_4biXnk",
+    "faq_LBEg7R",
+    "review_carousel_EJ8GbG",
+    "loox-product-reviews-app-section",
+    "1712573616eb38d664"
+  ]
+}

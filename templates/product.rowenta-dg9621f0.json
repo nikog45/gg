@@ -1,0 +1,397 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h2"
+          }
+        },
+        "liquid_CbLi6g": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-trust-stars' %}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "liquid_Pj4de3": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-delivery-info' %}"
+          }
+        },
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e": {
+          "type": "badges",
+          "settings": {}
+        },
+        "03986d94-ceda-470b-a533-0254dd7863c6": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "stack_blocks": true,
+            "selector_style": "dropdown",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "579d5724-6e2a-4577-9150-106ad1d6ab25": {
+          "type": "image",
+          "settings": {
+            "alignment": "center",
+            "max_width": 400
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "conversion_bear_trust_badges_widget_VGPpkG": {
+          "type": "shopify://apps/conversion-bear-trust-badges/blocks/widget/163a9b59-0ec2-4cb7-bf5c-31408b4a9420",
+          "settings": {}
+        },
+        "liquid_HWXdjF": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-urgency-bar' %}"
+          }
+        },
+        "liquid_gqWXAD": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "{% render 'pdp-shipping-steps' %}"
+          }
+        },
+        "description_HPVNUc": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true
+          }
+        },
+        "collapsible_text_XWDpG9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Autenticità",
+            "content": "<p>Garantiamo che ogni articolo ricevuto sia 100% autentico e nuovo di fabbrica. Ogni prodotto viene attentamente ispezionato dal nostro team per assicurarci che soddisfi gli elevati standard di qualità su cui ci impegniamo.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_text_Cw8yU9": {
+          "type": "collapsible_text",
+          "settings": {
+            "title": "Spedizione & Resi",
+            "content": "<p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "liquid_CbLi6g",
+        "price",
+        "liquid_Pj4de3",
+        "2c66329d-6fd9-427f-bb03-3ed04b6faf2e",
+        "03986d94-ceda-470b-a533-0254dd7863c6",
+        "579d5724-6e2a-4577-9150-106ad1d6ab25",
+        "buy_buttons",
+        "conversion_bear_trust_badges_widget_VGPpkG",
+        "liquid_HWXdjF",
+        "liquid_gqWXAD",
+        "description_HPVNUc",
+        "collapsible_text_XWDpG9",
+        "collapsible_text_Cw8yU9"
+      ],
+      "settings": {
+        "full_width": true,
+        "show_fixed_add_to_cart": true,
+        "desktop_media_width": 55,
+        "desktop_media_layout": "grid_highlight",
+        "mobile_media_size": "contained",
+        "mobile_carousel_control": "thumbnails",
+        "enable_video_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "input_background": "rgba(0,0,0,0)",
+        "input_text_color": ""
+      }
+    },
+    "image_with_text_overlay_bR3kpm": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_FRK4bC": {
+          "type": "heading",
+          "settings": {
+            "text": "Stira in metà tempo",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_JLeT6F": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Colpo di vapore fino a <strong>500 g/min</strong> e pressione di <strong>7,8 bar</strong>: la caldaia Rowenta DG9621F0 elimina anche le pieghe più ostinate, su ogni tessuto.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_FRK4bC",
+        "richtext_JLeT6F"
+      ],
+      "name": "Image with text overlay",
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "enable_parallax": false,
+        "image_size": "auto",
+        "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-eaaba7ae8648c690bf8a29e27c10ac11-preview-sgmConversionBaseFormat.jpg",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "text_color": "#000000",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
+      }
+    },
+    "media_with_text_7PTXdn": {
+      "type": "media-with-text",
+      "blocks": {
+        "image_gArV6U": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-d5573e25e02a4b15e1cf724697f46579-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+            "media_width": 50,
+            "media_position": "start",
+            "text_position": "place-self-center text-center",
+            "icon": "none",
+            "icon_width": 48,
+            "subheading": "",
+            "title": "Potenza da professionista, comfort di casa",
+            "content": "<p>Il vapore continuo da <strong>140 g/min</strong> garantisce prestazioni costanti anche nelle sessioni più lunghe, mentre la piastra <strong>Microsteam 400 HD 3De Laser</strong> scivola con precisione su ogni capo.</p><p>Il serbatoio removibile da <strong>1,3 L</strong> si riempie in un attimo, e il sistema anticalcare automatico con spegnimento di sicurezza assicura durata e tranquillità.</p>",
+            "link_text": "",
+            "link_url": "",
+            "background": "#ffffff",
+            "background_gradient": "",
+            "text_color": "#000000",
+            "text_gradient": "",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_gArV6U"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "full_width": false,
+        "spacing": "small"
+      }
+    },
+    "blocks_4biXnk": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_c8ea303_zCNj9j": {
+          "type": "ai_gen_block_c8ea303",
+          "settings": {
+            "main_heading": "Caratteristiche prodotto",
+            "heading_size": 32,
+            "heading_color": "#000000",
+            "heading_spacing": 40,
+            "column_1_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-5886cc1f8a06b07e140fc5fd23756636-preview-sgmConversionBaseFormat.jpg",
+            "column_1_heading": "Vapore uniforme",
+            "column_1_description": "<p>Piastra brevettata con 400 microfori vapore attivi per una distribuzione perfetta</p>",
+            "column_2_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-754cc57af537922423649f67a26485ca-preview-sgmConversionBaseFormat.jpg",
+            "column_2_heading": "Serbatoio removibile 1,3 L",
+            "column_2_description": "<p>Facile da riempire, per stirare a lungo senza interruzioni</p>",
+            "column_3_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-a08188c0b57d97b7a9c307f86b8cc84a-preview-sgmConversionBaseFormat.jpg",
+            "column_3_heading": "Modalità Eco",
+            "column_3_description": "<p>Risparmia energia mantenendo prestazioni di stiratura eccellenti</p>",
+            "column_4_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-20b27b42f08486855d74bc45d6140c2d-preview-sgmConversionBaseFormat.jpg",
+            "column_4_heading": "Piastra Microsteam 400 HD",
+            "column_4_description": "<p>Scorrevolezza e precisione su tutti i tessuti, anche i più delicati</p>",
+            "desktop_width_percent": 100,
+            "section_padding": 40,
+            "column_gap": 30,
+            "column_heading_size": 18,
+            "column_heading_color": "#000000",
+            "column_heading_spacing": 10,
+            "description_size": 14,
+            "description_color": "#303030",
+            "image_spacing": 20,
+            "image_border_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_c8ea303_zCNj9j"
+      ],
+      "name": "Four column features",
+      "settings": {}
+    },
+    "faq_LBEg7R": {
+      "type": "faq",
+      "blocks": {
+        "item_khRKkE": {
+          "type": "item",
+          "settings": {
+            "title": "Quanto tempo ci vuole prima di ricevere il mio articolo?",
+            "content": "<p>Offriamo spedizione veloce con corriere espresso e tracciamento.</p><p><strong>Tempi di lavorazione:</strong></p><ul><li><strong>24 ore:</strong> Gli ordini effettuati prima delle 17:00 vengono spediti entro 24 ore nei giorni lavorativi.</li><li><strong>Spedizione:</strong> La consegna avviene entro 3–5 giorni lavorativi con corriere espresso e tracciamento.</li></ul><p>Puoi richiedere un reso entro 30 giorni dalla ricezione del tuo ordine.</p>"
+          }
+        },
+        "item_Q37jET": {
+          "type": "item",
+          "settings": {
+            "title": "Posso restituire il mio ordine?",
+            "content": "<p>Sì, se hai effettuato l'ordine online hai il diritto di restituire o cambiare la merce entro 30 giorni dalla ricezione dell'ordine iniziale (in base alla disponibilità).</p>"
+          }
+        },
+        "item_98WjwX": {
+          "type": "item",
+          "settings": {
+            "title": "Funziona anche in verticale?",
+            "content": "<p>Sì: la funzione vapore verticale ti permette di rinfrescare e togliere le pieghe da tende e capi appesi senza asse da stiro.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_khRKkE",
+        "item_Q37jET",
+        "item_98WjwX"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Domande Frequenti",
+        "content": "",
+        "team_avatar_width": 160,
+        "support_hours": "Il nostro servizio clienti è disponibile dal lunedì al venerdì: 8:00 – 20:30.",
+        "answer_time": "Risposta media entro 24h",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    },
+    "review_carousel_EJ8GbG": {
+      "type": "review-carousel",
+      "blocks": {
+        "review_Udt7MB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-d5573e25e02a4b15e1cf724697f46579-preview-sgmConversionBaseFormat-sgmProductFormat.jpg",
+            "review_text": "Stiro in metà tempo rispetto al ferro tradizionale, il vapore è potentissimo. Le camicie vengono perfette.",
+            "reviewer_name": "Rosanna"
+          }
+        },
+        "review_4KdHEk": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-d7b9842cad1266873c575e7aca21df0e-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Compatta per essere una caldaia, sta comoda nel mobile. Si scalda in fretta ed è pronta subito.",
+            "reviewer_name": "Claudio"
+          }
+        },
+        "review_Q3wgkB": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-eaaba7ae8648c690bf8a29e27c10ac11-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Il colpo di vapore toglie le pieghe anche dai jeans in una passata. Serbatoio comodo da riempire.",
+            "reviewer_name": "Patrizia"
+          }
+        },
+        "review_44MHtp": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-20b27b42f08486855d74bc45d6140c2d-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "La piastra scivola benissimo e non si attacca ai tessuti delicati. Ottimo acquisto.",
+            "reviewer_name": "Sandra"
+          }
+        },
+        "review_8Pmj3A": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-5886cc1f8a06b07e140fc5fd23756636-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "Vapore uniforme su tutta la piastra, si nota la differenza. Arrivata in due giorni.",
+            "reviewer_name": "Enrico"
+          }
+        },
+        "review_j3QcfJ": {
+          "type": "review",
+          "settings": {
+            "review_image": "shopify://shop_images/api-rest-00ed29448a7522f610cac04d7b9ea7e0-assets-754cc57af537922423649f67a26485ca-preview-sgmConversionBaseFormat.jpg",
+            "review_text": "La uso anche in verticale sulle tende, funziona davvero. Silenziosa e ben fatta.",
+            "reviewer_name": "Monica"
+          }
+        }
+      },
+      "block_order": [
+        "review_Udt7MB",
+        "review_4KdHEk",
+        "review_Q3wgkB",
+        "review_44MHtp",
+        "review_8Pmj3A",
+        "review_j3QcfJ"
+      ],
+      "name": "Review Carousel",
+      "settings": {}
+    },
+    "loox-product-reviews-app-section": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "1712573616eb38d664": {
+      "type": "apps",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_bR3kpm",
+    "media_with_text_7PTXdn",
+    "blocks_4biXnk",
+    "faq_LBEg7R",
+    "review_carousel_EJ8GbG",
+    "loox-product-reviews-app-section",
+    "1712573616eb38d664"
+  ]
+}

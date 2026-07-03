@@ -1,0 +1,168 @@
+{% comment %} Calculate dynamic delivery date (4 days from now) {% endcomment %}
+{% assign now_ts = 'now' | date: '%s' | plus: 0 %}
+{% assign delivery_ts = now_ts | plus: 345600 %}
+{% assign delivery_day = delivery_ts | date: '%-d' | plus: 0 %}
+{% assign month_num = delivery_ts | date: '%-m' | plus: 0 %}
+
+{% comment %} Italian month name (lowercase, as is standard in Italian) {% endcomment %}
+{% case month_num %}
+  {% when 1 %}{% assign delivery_month_it = 'gennaio' %}
+  {% when 2 %}{% assign delivery_month_it = 'febbraio' %}
+  {% when 3 %}{% assign delivery_month_it = 'marzo' %}
+  {% when 4 %}{% assign delivery_month_it = 'aprile' %}
+  {% when 5 %}{% assign delivery_month_it = 'maggio' %}
+  {% when 6 %}{% assign delivery_month_it = 'giugno' %}
+  {% when 7 %}{% assign delivery_month_it = 'luglio' %}
+  {% when 8 %}{% assign delivery_month_it = 'agosto' %}
+  {% when 9 %}{% assign delivery_month_it = 'settembre' %}
+  {% when 10 %}{% assign delivery_month_it = 'ottobre' %}
+  {% when 11 %}{% assign delivery_month_it = 'novembre' %}
+  {% when 12 %}{% assign delivery_month_it = 'dicembre' %}
+{% endcase %}
+
+<style>
+  .custom-product-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 12px;
+  }
+
+  /* Guarantee Section */
+  .guarantee-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 10px 12px 10px 0;
+  }
+  .back-arrow img {
+    display: block;
+  }
+  .guarantee-text {
+    flex: 1;
+    font-size: 13px;
+    font-weight: 600;
+    color: #222;
+  }
+  .info-icon {
+    position: relative;
+    cursor: pointer;
+  }
+  .info-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ccc;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tooltip {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 24px;
+    background: #333;
+    color: #fff;
+    font-size: 11px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+  }
+  .info-icon:hover .tooltip {
+    display: block;
+  }
+
+  /* Status Items */
+  .status-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .status-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    flex-shrink: 0;
+  }
+  .status-text {
+    font-size: 13px;
+    color: #333;
+  }
+  .orange-text {
+    color: #e07b00;
+    font-weight: 600;
+  }
+  .delivery-text {
+    color: #333;
+  }
+  .delivery-date {
+    font-weight: 700;
+    color: #000;
+  }
+
+  /* Pulsing Dot */
+  .doticon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pulsing-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e07b00;
+    position: relative;
+    animation: pulse-dot 1.5s infinite;
+  }
+  @keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(224, 123, 0, 0.5); }
+    70%  { box-shadow: 0 0 0 8px rgba(224, 123, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(224, 123, 0, 0); }
+  }
+</style>
+
+<div class="custom-product-block">
+
+  <!-- Garanzia Soddisfatti o Rimborsati -->
+  <div class="guarantee-section">
+    <div class="back-arrow">
+      <img width="20" height="20" src="https://cdn.shopify.com/s/files/1/0944/3023/2907/files/back_1.svg?v=1750868955" alt="Soddisfatti o rimborsati">
+    </div>
+    <span class="guarantee-text">Soddisfatti o rimborsati entro 30 giorni</span>
+    <div class="info-icon">
+      <div class="info-circle">i</div>
+      <div class="tooltip">Rimborso garantito entro 30 giorni dall'acquisto</div>
+    </div>
+  </div>
+
+  <!-- Stock -->
+  <div class="status-item">
+    <div class="doticon status-icon">
+      <div class="pulsing-dot"></div>
+    </div>
+    <div class="status-text orange-text">Ultimi pezzi disponibili</div>
+  </div>
+
+  <!-- Spedizione -->
+  <div class="status-item">
+    <div class="status-icon">
+      <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+        <path fill="currentColor" d="M0 32C0 12.3 12.3 0 32 0h72.9c27.5 0 52 15.6 60.7 43.8L257.7 320c30.1 .5 56.8 12.9 74 37l202.1-67.4c12.8-5.6 34.9 3.5 40.5 20.2s-3.5 34.9-20.2 40.5L352 415.7c-.9 52.2-43.5 94.3-96 94.3c-53 0-96-43-96-96c0-30.8 12.5-58.2 37-75.8L104.9 64H32C12.3 64 0 49.7 0 32zM244.8 134.5c-5.5-12.8 3.7-34.9 20.5-40.3L311 79.4l19.8 60.9 60.9-19.8L371.8 59.6l45.7-12.8c12.8-5.5 34.9 3.7 40.3 20.5l49.4 152.2c5.5 12.8-3.7 34.9-20.5 40.3L334.5 307.2c-12.8 5.5-34.9-3.7-40.3-20.5L244.8 134.5z"></path>
+      </svg>
+    </div>
+    <div class="status-text delivery-text">
+      Spedizione veloce con tracciamento &middot; consegna entro il
+      <span class="delivery-date">{{ delivery_day }} {{ delivery_month_it }}</span>
+    </div>
+  </div>
+
+</div>
