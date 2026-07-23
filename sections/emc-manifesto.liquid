@@ -1,0 +1,289 @@
+<style>
+  .emc-manifesto {
+    background-color: {{ section.settings.bg_color }};
+    padding: {{ section.settings.padding_v }}px 1.5rem;
+  }
+
+  .emc-manifesto__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .emc-manifesto__eyebrow {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color }};
+    margin-bottom: 14px;
+  }
+
+  .emc-manifesto__heading {
+    margin: 0 auto 14px;
+    max-width: 640px;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .emc-manifesto__intro {
+    margin: 0 auto;
+    max-width: 560px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: {{ section.settings.text_color }};
+    opacity: 0.75;
+  }
+
+  /* ── Pillars ── */
+  .emc-manifesto__pillars {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: {{ section.settings.pillars_gap_top }}px;
+    text-align: left;
+  }
+
+  @media (min-width: 768px) {
+    .emc-manifesto__pillars {
+      grid-template-columns: repeat({{ section.blocks.size | at_least: 1 | at_most: 4 }}, 1fr);
+      gap: 40px;
+    }
+  }
+
+  .emc-pillar {
+    border-top: 2px solid {{ section.settings.accent_color }};
+    padding-top: 18px;
+  }
+
+  .emc-pillar__index {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: {{ section.settings.accent_color }};
+    margin-bottom: 8px;
+  }
+
+  .emc-pillar__title {
+    margin: 0 0 8px;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    color: {{ section.settings.text_color }};
+  }
+
+  .emc-pillar__text {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: {{ section.settings.text_color }};
+    opacity: 0.75;
+  }
+
+  /* ── CTA ── */
+  .emc-manifesto__cta {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 28px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: {{ section.settings.btn_bg }};
+    color: {{ section.settings.btn_color }};
+    transition: opacity 0.2s ease;
+  }
+
+  .emc-manifesto__cta:hover { opacity: 0.85; }
+</style>
+
+<div class="emc-manifesto">
+  <div class="emc-manifesto__inner">
+
+    {%- if section.settings.eyebrow != blank -%}
+      <span class="emc-manifesto__eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="emc-manifesto__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.intro != blank -%}
+      <p class="emc-manifesto__intro">{{ section.settings.intro }}</p>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="emc-manifesto__pillars">
+        {%- for block in section.blocks -%}
+          <div class="emc-pillar" {{ block.shopify_attributes }}>
+            <span class="emc-pillar__index">{{ forloop.index | prepend: '0' }}</span>
+            {%- if block.settings.title != blank -%}
+              <h3 class="emc-pillar__title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.text != blank -%}
+              <p class="emc-pillar__text">{{ block.settings.text }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.btn_label != blank -%}
+      <a href="{{ section.settings.btn_link | default: '#' }}" class="emc-manifesto__cta">
+        {{ section.settings.btn_label }}
+      </a>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "EMC Manifesto",
+  "tag": "section",
+  "class": "emc-manifesto-section",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Early Miles Club"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "More than a t-shirt"
+    },
+    {
+      "type": "textarea",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "Early Miles Club started with one idea — the run that counts is the one nobody sees. Every piece we make carries that belief, from the fabric we choose to the crest on the chest."
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button label",
+      "default": "Get Yours"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#F5F2EC"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#141414"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#E8622C"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button background",
+      "default": "#141414"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_v",
+      "label": "Vertical padding",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "pillars_gap_top",
+      "label": "Space above pillars",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "EMC Manifesto — The Hour / The Miles / The Club",
+      "blocks": [
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "The Hour",
+            "text": "Alarm before the light. Laces in the dark. The streets belong to you for exactly as long as the city sleeps."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "The Miles",
+            "text": "Easy pace, no watch-staring, no finish line. The quiet kilometres that make everything else possible."
+          }
+        },
+        {
+          "type": "pillar",
+          "settings": {
+            "title": "The Club",
+            "text": "A crest, not a logo. Wear it and you'll spot the others — the ones who were also out at first light."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
