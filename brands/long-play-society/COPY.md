@@ -1,94 +1,85 @@
-# Long Play Society — Launch Copy
+# Long Play Society — Launch Copy (Funk Edition)
 
-Paste-ready copy for the store. Same structure as SPS and EMC.
+Paste-ready copy for the store. Revised 2026-07-23: funk direction — playful, 70s record-shop
+energy. Replaces the earlier quiet-minimal draft.
 
 ---
 
-## Announcement bar
+## Announcement bar / marquee
 
-> Play it all the way through.
+> Play it all the way through ★ No skips ★ Both sides ★ 33⅓ forever ★
 
 ## Hero
 
-**Headline:** Both sides. No skips.
-**Sub:** A society for the people who still listen to whole records.
-**CTA:** Get Yours
+**Headline:** Kiss your shuffle goodbye.
+**Sub:** The society for people who let the record cook.
+**CTA:** Grab the Tee
 
 ## Product — The Label Tee
 
 **Title:** The Label Tee — Long Play Society
-**Price:** €34,95
+**Price:** £29.95 (GBP store) / €34,95 if switched to EUR
 
-**Description:**
+**Description:** (live in store)
 
-Some people shuffle. You're not one of them.
+Shuffle? Never met her.
 
-The Label Tee is the founding piece of Long Play Society — a heavyweight garment you'll actually
-reach for, carrying the original Label: a hand-set record center-label for the people who slide
-the sleeve out, drop the needle, and sit down.
+The Label Tee is the founding piece of Long Play Society — a heavyweight tee with exactly one
+job: telling the world you let records play. On the chest sits our Label, a hand-set 33⅓
+center label with the club promise baked right in: *play it all the way through*.
 
-No gear talk. No skips. Just a well-made tee for the listeners who know an album is a whole
-thing — Side A, flip, Side B, run-out groove, silence.
+It's for the flippers, the crate diggers, the B-side believers — the ones who drop the needle,
+sink into the couch, and let Side A cook.
 
-- 100% heavyweight cotton (~6 oz), structured drape, no shrink-and-shrivel
-- Original Label graphic, front chest placement
+- 100% heavyweight cotton (~6 oz) — thick like a good bassline
+- Original Label print, front chest placement
 - Unisex fit — true to size
-- Printed on demand, one at a time, when you order
+- Pressed one at a time, when you order (like all good records)
 
-Machine wash cold, inside out. Tumble dry low.
+Machine wash cold, inside out. Tumble dry low. Never dry clean, always B-side.
 
-## Story section — "More than a t-shirt"
+## Manifesto section — "Kiss your shuffle goodbye."
 
-**Heading:** More than a t-shirt
+**Intro:** Long Play Society is for the flippers, the crate diggers, the B-side believers.
+One belief, stitched on every chest: an album is a whole thing. Let it cook.
 
-Long Play Society started with one idea — an album is meant to be heard the way it was made.
-Every piece we make carries that belief, from the fabric we choose to the label on the chest.
+**Pillar 1 — Drop It**
+Needle down, phone down, volume up. Forty minutes where the record gets your whole attention —
+and gives it right back.
 
-**Pillar 1 — The Ritual**
-Sleeve out. Dust brush. Needle down. Forty minutes where the phone stays face-down and the
-music gets your whole attention.
+**Pillar 2 — Flip It**
+Side A in full. Then the flip — that little walk to the turntable is the best intermission in
+music. The deep cuts live on Side B.
 
-**Pillar 2 — The Side**
-No shuffle, no skips, no "just the singles." Side A in full, then the flip. The deep cuts are
-where the record lives.
+**Pillar 3 — Wear It**
+The Label on your chest does the talking. Other members will clock it across the record shop.
+Nod accordingly.
 
-**Pillar 3 — The Society**
-A label, not a logo. Wear it and you'll spot the others — the ones who also stayed for the
-run-out groove.
+**CTA:** Grab the Tee
 
 ## Email capture
 
-**Heading:** Join the Society
-**Sub:** New pressings of ours, first. New pieces and member releases land in your inbox before
-anywhere else.
-**Button:** Subscribe
-
-## FAQ
-
-**What material is the tee made of?**
-100% heavyweight cotton (~6 oz), unisex fit that runs true to size. Built to hold up — soft,
-structured, and not see-through after a few washes.
-
-**How long does shipping take?**
-Every Label Tee is printed to order, so please allow 2–5 business days for production before it
-ships. You'll get a tracking link as soon as it's on its way.
-
-**What's your return/exchange policy?**
-Since each tee is made to order specifically for you, we don't accept returns for size or
-preference changes — but if your item arrives damaged or defective, we'll replace it.
+**Heading:** Get on the guest list
+**Sub:** New drops land in your inbox before the needle hits the record. No spam, all killer,
+no filler.
+**Button:** I'm In
 
 ## Product page microcopy (above buy button)
 
-> Printed to order in the EU · Ships in 2–5 days
+> Pressed to order in the EU · Ships in 2–5 days
 
 ## Details accordion
 
-**Fit & fabric:** 100% heavyweight cotton (~6 oz), unisex fit that runs true to size. Soft,
-structured, and not see-through after a few washes. Machine wash cold, inside out; tumble dry low.
+**Fit & fabric:** 100% heavyweight cotton (~6 oz), unisex, true to size. Thick like a good
+bassline — soft, structured, not see-through after a few washes. Wash cold, inside out; tumble
+dry low.
 
-**Shipping:** Every Label Tee is printed to order, one at a time — allow 2–5 business days for
-production before it ships. You'll get a tracking link as soon as it's on its way.
+**Shipping:** Every Label Tee is pressed to order, one at a time — allow 2–5 business days
+before it ships. Tracking link the moment it's on the move.
 
-**Returns & exchanges:** Each tee is made specifically for you, so we can't accept returns for
-size or preference changes — but if your item arrives damaged or defective, we'll replace it,
-no questions asked.
+**Returns & exchanges:** Each tee is a one-off pressing made for you, so no returns for size or
+preference changes — but if yours arrives damaged or defective, we'll replace it. No drama.
+
+## Footer one-liner
+
+> © Long Play Society — all killer, no filler, both sides.

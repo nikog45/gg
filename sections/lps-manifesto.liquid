@@ -1,49 +1,106 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+
 <style>
   .lps-manifesto {
     background-color: {{ section.settings.bg_color }};
-    padding: {{ section.settings.padding_v }}px 1.5rem;
+    padding: {{ section.settings.padding_v }}px 0;
+    overflow: hidden;
+  }
+
+  /* ── Marquee strip ── */
+  .lps-marquee {
+    background: {{ section.settings.accent2_color }};
+    color: {{ section.settings.text_color }};
+    transform: rotate(-1.2deg) scale(1.02);
+    padding: 10px 0;
+    margin-bottom: 56px;
+    border-top: 3px solid {{ section.settings.text_color }};
+    border-bottom: 3px solid {{ section.settings.text_color }};
+    white-space: nowrap;
+    display: flex;
+  }
+
+  .lps-marquee__track {
+    display: inline-flex;
+    gap: 0;
+    animation: lps-scroll 22s linear infinite;
+  }
+
+  .lps-marquee__item {
+    font-family: 'Shrikhand', cursive;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding-right: 28px;
+  }
+
+  @keyframes lps-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lps-marquee__track { animation: none; }
   }
 
   .lps-manifesto__inner {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 0 1.5rem;
     text-align: center;
+    position: relative;
   }
 
-  .lps-manifesto__eyebrow {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: {{ section.settings.accent_color }};
-    margin-bottom: 14px;
+  /* ── Spinning record ── */
+  .lps-record {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at center,
+        {{ section.settings.accent_color }} 0 14px,
+        {{ section.settings.text_color }} 15px 20px,
+        transparent 21px 23px,
+        {{ section.settings.text_color }} 24px 27px,
+        transparent 28px 30px,
+        {{ section.settings.text_color }} 31px 100%);
+    animation: lps-spin 9s linear infinite;
+  }
+
+  @keyframes lps-spin { to { transform: rotate(360deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lps-record { animation: none; }
   }
 
   .lps-manifesto__heading {
-    margin: 0 auto 14px;
-    max-width: 640px;
-    font-size: clamp(26px, 4vw, 40px);
-    font-weight: 800;
-    line-height: 1.12;
-    letter-spacing: -0.5px;
+    margin: 0 auto 16px;
+    max-width: 700px;
+    font-family: 'Shrikhand', cursive;
+    font-weight: 400;
+    font-size: clamp(34px, 5.5vw, 58px);
+    line-height: 1.05;
     color: {{ section.settings.text_color }};
+    text-shadow: 3px 3px 0 {{ section.settings.accent_color }};
   }
 
   .lps-manifesto__intro {
     margin: 0 auto;
-    max-width: 560px;
-    font-size: 15px;
-    line-height: 1.65;
+    max-width: 540px;
+    font-size: 16px;
+    line-height: 1.6;
     color: {{ section.settings.text_color }};
-    opacity: 0.75;
+    opacity: 0.85;
   }
 
-  /* ── Pillars ── */
+  /* ── Pillar stickers ── */
   .lps-manifesto__pillars {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 26px;
     margin-top: {{ section.settings.pillars_gap_top }}px;
     text-align: left;
   }
@@ -51,64 +108,93 @@
   @media (min-width: 768px) {
     .lps-manifesto__pillars {
       grid-template-columns: repeat({{ section.blocks.size | at_least: 1 | at_most: 4 }}, 1fr);
-      gap: 40px;
+      gap: 28px;
     }
   }
 
   .lps-pillar {
-    border-top: 2px solid {{ section.settings.accent_color }};
-    padding-top: 18px;
+    background: #FFFFFF;
+    border: 3px solid {{ section.settings.text_color }};
+    border-radius: 18px;
+    padding: 22px 20px 24px;
+    box-shadow: 6px 6px 0 {{ section.settings.text_color }};
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .lps-pillar:nth-child(3n+1) { transform: rotate(-1.4deg); }
+  .lps-pillar:nth-child(3n+2) { transform: rotate(1.2deg);  background: {{ section.settings.accent2_color }}33; }
+  .lps-pillar:nth-child(3n)   { transform: rotate(-0.8deg); background: {{ section.settings.accent_color }}22; }
+
+  .lps-pillar:hover {
+    transform: rotate(0deg) translate(-2px, -2px);
+    box-shadow: 9px 9px 0 {{ section.settings.text_color }};
   }
 
   .lps-pillar__index {
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    display: inline-block;
+    font-family: 'Shrikhand', cursive;
+    font-size: 26px;
+    line-height: 1;
     color: {{ section.settings.accent_color }};
-    margin-bottom: 8px;
+    -webkit-text-stroke: 1px {{ section.settings.text_color }};
+    margin-bottom: 10px;
   }
 
   .lps-pillar__title {
     margin: 0 0 8px;
-    font-size: 17px;
-    font-weight: 800;
-    letter-spacing: -0.2px;
+    font-family: 'Shrikhand', cursive;
+    font-weight: 400;
+    font-size: 21px;
     color: {{ section.settings.text_color }};
   }
 
   .lps-pillar__text {
     margin: 0;
-    font-size: 14px;
+    font-size: 14.5px;
     line-height: 1.6;
     color: {{ section.settings.text_color }};
-    opacity: 0.75;
+    opacity: 0.85;
   }
 
   /* ── CTA ── */
   .lps-manifesto__cta {
     display: inline-block;
-    margin-top: 40px;
-    padding: 12px 28px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    margin-top: 44px;
+    padding: 15px 36px;
+    font-family: 'Shrikhand', cursive;
+    font-size: 17px;
+    letter-spacing: 0.04em;
     text-decoration: none;
-    border-radius: 2px;
-    background-color: {{ section.settings.btn_bg }};
-    color: {{ section.settings.btn_color }};
-    transition: opacity 0.2s ease;
+    border-radius: 999px;
+    background-color: {{ section.settings.accent_color }};
+    color: #FFFFFF;
+    border: 3px solid {{ section.settings.text_color }};
+    box-shadow: 5px 5px 0 {{ section.settings.text_color }};
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
 
-  .lps-manifesto__cta:hover { opacity: 0.85; }
+  .lps-manifesto__cta:hover {
+    transform: translate(-2px, -2px) rotate(-1deg);
+    box-shadow: 8px 8px 0 {{ section.settings.text_color }};
+  }
 </style>
 
 <div class="lps-manifesto">
+
+  {%- if section.settings.marquee_text != blank -%}
+    <div class="lps-marquee" aria-hidden="true">
+      <div class="lps-marquee__track">
+        {%- for i in (1..8) -%}
+          <span class="lps-marquee__item">{{ section.settings.marquee_text }}</span>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
   <div class="lps-manifesto__inner">
 
-    {%- if section.settings.eyebrow != blank -%}
-      <span class="lps-manifesto__eyebrow">{{ section.settings.eyebrow }}</span>
+    {%- if section.settings.show_record -%}
+      <div class="lps-record" aria-hidden="true"></div>
     {%- endif -%}
 
     {%- if section.settings.heading != blank -%}
@@ -157,27 +243,33 @@
     },
     {
       "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow label",
-      "default": "Long Play Society"
+      "id": "marquee_text",
+      "label": "Marquee text",
+      "default": "Play it all the way through ★ No skips ★ Both sides ★ 33⅓ forever ★"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_record",
+      "label": "Show spinning record",
+      "default": true
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "More than a t-shirt"
+      "default": "Kiss your shuffle goodbye."
     },
     {
       "type": "textarea",
       "id": "intro",
       "label": "Intro text",
-      "default": "Long Play Society started with one idea — an album is meant to be heard the way it was made. Every piece we make carries that belief, from the fabric we choose to the label on the chest."
+      "default": "Long Play Society is for the flippers, the crate diggers, the B-side believers. One belief, stitched on every chest: an album is a whole thing. Let it cook."
     },
     {
       "type": "text",
       "id": "btn_label",
       "label": "Button label",
-      "default": "Get Yours"
+      "default": "Grab the Tee"
     },
     {
       "type": "url",
@@ -192,31 +284,25 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background color",
-      "default": "#F4EFE6"
+      "default": "#F6EEDD"
     },
     {
       "type": "color",
       "id": "text_color",
-      "label": "Text color",
-      "default": "#171310"
+      "label": "Ink color",
+      "default": "#24160F"
     },
     {
       "type": "color",
       "id": "accent_color",
-      "label": "Accent color",
-      "default": "#C98A2B"
+      "label": "Accent — orange",
+      "default": "#F25C05"
     },
     {
       "type": "color",
-      "id": "btn_bg",
-      "label": "Button background",
-      "default": "#171310"
-    },
-    {
-      "type": "color",
-      "id": "btn_color",
-      "label": "Button text",
-      "default": "#ffffff"
+      "id": "accent2_color",
+      "label": "Accent — mustard",
+      "default": "#E8A33D"
     },
     {
       "type": "range",
@@ -259,27 +345,27 @@
   ],
   "presets": [
     {
-      "name": "LPS Manifesto — The Ritual / The Side / The Society",
+      "name": "LPS Manifesto — Drop It / Flip It / Wear It",
       "blocks": [
         {
           "type": "pillar",
           "settings": {
-            "title": "The Ritual",
-            "text": "Sleeve out. Dust brush. Needle down. Forty minutes where the phone stays face-down and the music gets your whole attention."
+            "title": "Drop It",
+            "text": "Needle down, phone down, volume up. Forty minutes where the record gets your whole attention — and gives it right back."
           }
         },
         {
           "type": "pillar",
           "settings": {
-            "title": "The Side",
-            "text": "No shuffle, no skips, no ‘just the singles’. Side A in full, then the flip. The deep cuts are where the record lives."
+            "title": "Flip It",
+            "text": "Side A in full. Then the flip — that little walk to the turntable is the best intermission in music. The deep cuts live on Side B."
           }
         },
         {
           "type": "pillar",
           "settings": {
-            "title": "The Society",
-            "text": "A label, not a logo. Wear it and you'll spot the others — the ones who also stayed for the run-out groove."
+            "title": "Wear It",
+            "text": "The Label on your chest does the talking. Other members will clock it across the record shop. Nod accordingly."
           }
         }
       ]

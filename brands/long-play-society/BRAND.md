@@ -46,21 +46,23 @@ It reads as a record label, not a logo. Chest placement, single hit.
 
 One product, one story, founding-member framing. Crewneck and slipmat come later if the tee proves out.
 
-## Voice
+## Voice — FUNK EDITION (revised 2026-07-23)
 
-Unhurried, warm, record-shop-counter dry. Talks about the ritual (sleeve, dust brush, needle
-drop, the run-out groove) — never about gear specs or audiophile numbers. No snobbery: the
-enemy is shuffle, not Spotify.
+Playful, warm, a little cheeky — record-shop banter, not gallery whisper. Music puns welcome,
+exclamation marks rationed but allowed. The enemy is shuffle, and we're funny about it
+("Shuffle? Never met her."). No snobbery, no gear talk, maximum groove.
 
-**Words we use:** side, pressing, sleeve, groove, needle, listen, society, all the way through
+**Words we use:** flip, drop, groove, cook, B-side, crate digger, 33⅓, let it play
 **Words we never use:** audiophile, lossless, rig, setup, superior, hi-res
 
 ## Visual system
 
-- **Palette:** cream (#F4EFE6), near-black (#171310), amber accent (#C98A2B) used sparingly
-- **Type:** hand-set / grotesk headings with an old-label feel, quiet sans body
-- **Imagery:** sleeves leaning against a wall, a turntable in warm lamp light, hands lowering a
-  needle, record-shop crates — evening warmth, never neon, never club photography
+- **Palette (funk):** cream (#F6EEDD), chocolate ink (#24160F), hot orange (#F25C05),
+  mustard (#E8A33D) — 70s record-sleeve energy, used boldly, not sparingly
+- **Type:** groovy display font for headings (Shrikhand or similar Cooper-Black energy),
+  clean sans body; marquee strips, tilted sticker cards, hard offset shadows
+- **Imagery:** colorful sleeve walls, shag rugs, warm saturated 70s tones, people dancing
+  while the record plays — joyful, funky, never sterile-minimal
 
 ## Launch sequence
 
