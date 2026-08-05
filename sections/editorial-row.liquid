@@ -222,7 +222,7 @@
         {%- if block.settings.video_url != blank -%}
           <video
             class="editorial-tile__video"
-            src="{{ block.settings.video_url }}"
+            src="{{ block.settings.video_url | replace: 'http://', 'https://' }}"
             {% if block.settings.poster != blank %}
               poster="{{ block.settings.poster | image_url: width: 960 }}"
             {% endif %}
