@@ -1,139 +1,163 @@
-# Rebranding: marimeex.cz → Outlet & doprodej skladu
+# Rebranding: marimeex.cz → Outlet & Closing-Down Sale
 
-Kompletní plán přechodu z „Marimex" na outletový obchod s doprodejem skladu
-(sleva až **70 %**). Interaktivní vizuální verze byla vytvořena jako Artifact;
-tento soubor je referenční kopie k ručnímu provedení.
+Complete plan to move from "Marimex" to an outlet store with a closing-down
+sale (up to **70% off**). An interactive visual version was created as an
+Artifact; this file is a reference copy for doing it by hand.
 
----
-
-## ✓ Už hotovo přímo v Shopify
-
-- Vytvořena kolekce **„Výprodej – Vše musí pryč"** (`/vyprodej-vse-musi-pryc`)
-  se všemi 8 produkty.
-- Opraven rozbitý název produktu → **„Intex Ultra XTR – Bazén 488 × 122 cm
-  s pískovou filtrací"** (dříve obsahoval „now this in czech").
-- Smazán testovací produkt **„Test"**.
+**Instructions are in English. The text you paste into the store stays in
+Czech** (your customers are Czech) — each Czech block has an English
+translation so you know what it means. Don't paste the English part.
 
 ---
 
-## 01 · Nový název
+## ✓ Already done in your Shopify store
 
-Nový název má říct **co** prodáváte (bazény & wellness) a **za jakých podmínek**
-(outlet / doprodej).
+- Created the collection **"Výprodej – Vše musí pryč"** (`/vyprodej-vse-musi-pryc`)
+  — Czech for *"Clearance – Everything Must Go"* — with all 8 products.
+- Fixed the broken product title → **"Intex Ultra XTR – Bazén 488 × 122 cm
+  s pískovou filtrací"** (it previously contained "now this in czech").
+- Deleted the leftover **"Test"** product.
 
-| Název | Doména | Poznámka |
+---
+
+## 01 · New name
+
+The name should say **what** you sell (pools & wellness) and **on what terms**
+(outlet / clearance).
+
+| Name | Domain | Notes |
 |---|---|---|
-| **AquaOutlet** ⭐ *doporučeno* | aquaoutlet.cz | Kategorie + pozice v jednom slově, zapamatovatelné, silné pro logo i reklamu. |
-| Bazén Outlet | bazen-outlet.cz | Maximální jasnost pro CZ zákazníky a SEO. Bezpečná volba. |
-| Doprodej Bazénů | doprodej-bazenu.cz | Čistě výprodejová/SEO hra. Silná urgence, slabší dlouhodobá značka. |
-| Vše do bazénu! | vsedobazenu.cz | Hravá dvojznačnost, zapamatovatelné, méně jasně outletové. |
+| **AquaOutlet** ⭐ *recommended* | aquaoutlet.cz | Category + positioning in one word. Memorable, strong for a logo and ads. |
+| Bazén Outlet | bazen-outlet.cz | "Bazén" = pool. Maximum clarity for Czech shoppers and search. Safe choice. |
+| Doprodej Bazénů | doprodej-bazenu.cz | Literally "Pool Clearance". Pure clearance/SEO play. Strong urgency, weaker long-term brand. |
+| Vše do bazénu! | vsedobazenu.cz | A Czech pun ("all in / everything for the pool"). Memorable, less obviously an outlet. |
 
 ---
 
-## 02 · Vizuální identita
+## 02 · Visual identity
 
-Odklon od „důvěryhodné modré" k **outletové energii**: vysoký kontrast,
-cenovkově červený akcent, modrá jako odkaz na vodu/kvalitu, teplá papírová
-neutrální barva.
+Shift from "trustworthy blue showroom" to **outlet energy**: high contrast, a
+price-tag red accent, blue as a nod to water/quality, warm paper background.
 
 | Role | Hex |
 |---|---|
-| Cenovka (akcent) | `#DC3220` |
-| Voda / modrá | `#123A54` |
-| Zlatá cenovka | `#E39C2C` |
-| Papír / pozadí | `#F6F3ED` |
-| Text / inkoust | `#14202A` |
+| Price-tag (accent) | `#DC3220` |
+| Water blue | `#123A54` |
+| Tag gold | `#E39C2C` |
+| Paper / background | `#F6F3ED` |
+| Ink / text | `#14202A` |
 
-- **Logo:** tučný název na červené „cenovce" s dírkou.
-- **Typografie:** silný bezpatkový font, verzálky, těsné prostrkání pro nadpisy;
-  čitelný běžný text; zarovnaná čísla u cen.
-- **Tón:** přímý, naléhavý, upřímný — „Končíme. Ceny dolů. Poslední kusy."
-
----
-
-## 03 · Struktura obchodu
-
-**Navigace / menu:**
-- Výprodej — vše → `/vyprodej-vse-musi-pryc` *(hotovo)*
-- Bazény → `/bazeny` *(vytvořit)*
-- Vířivky → `/virivky` *(vytvořit)*
-- Příslušenství & roboti → `/prislusenstvi` *(vytvořit)*
-- Jak doprodej funguje → `/pages/doprodej` *(stránka)*
-
-**Kolekce:**
-- Výprodej – Vše musí pryč *(hotovo, 8 produktů)*
-- Bazény *(smart: typ „Bazén")*
-- Vířivky *(smart: název obsahuje „vířiv")*
-- Poslední kusy *(nízké skladem)*
-- „Kolekce" (stará) → přejmenovat/sloučit
-
-**Sekce úvodní stránky (shora dolů):**
-1. Oznamovací lišta (červená) — „Ukončujeme provoz — sleva až 70 %"
-2. Hero — velký nadpis + CTA „Do výprodeje" + odpočet
-3. Kolekce Výprodej — mřížka s přeškrtnutou cenou
-4. Odznaky důvěry — doprava zdarma, oficiální distributor, skladem ihned
-5. „Jak doprodej funguje" — vysvětlení + FAQ
+- **Logo:** bold name on a red "price tag" with a punched hole.
+- **Typography:** strong sans-serif, uppercase, tight tracking for headings;
+  clean readable body text; aligned figures for prices.
+- **Tone:** direct, urgent, honest — "We're closing. Prices slashed. Last units."
 
 ---
 
-## 04 · Texty (česky, k vložení)
+## 03 · Store structure
 
-**Oznamovací lišta:**
-> UKONČUJEME PROVOZ · SLEVY AŽ 70 % · SKLADEM V OMEZENÉM MNOŽSTVÍ · DOPRAVA ZDARMA
+Handles (the `/url` parts) stay in Czech for SEO.
 
-**Hero — nadpis:**
-> Končíme. Vše musí pryč. Bazény a vířivky se slevou až 70 %.
+**Navigation / menu:**
+- Clearance — all → `/vyprodej-vse-musi-pryc` *(done)*
+- Pools → `/bazeny` *(create)*
+- Hot tubs → `/virivky` *(create)*
+- Accessories & robots → `/prislusenstvi` *(create)*
+- How the sale works → `/pages/doprodej` *(page)*
 
-**Hero — podtitul:**
-> Doprodáváme celý sklad. Po vyprodání zásob definitivně zavíráme — poslední
-> šance pořídit značkové bazény za zlomek ceny.
+**Collections:**
+- Clearance – Everything Must Go *(done, 8 products)*
+- Pools *(smart: product type = pool)*
+- Hot tubs *(smart: title contains "vířiv")*
+- Last units *(low stock)*
+- "Kolekce" (old) → rename / merge
 
-**Tlačítko:** Zobrazit výprodej →
-
-**Odznak na produktu:** −70 % · Poslední kusy · Skladem ihned
-
-**Urgence u produktu:** Doprodej skladu — po vyprodání se již nebude doplňovat.
-
-**Patička / o nás:**
-> Po letech provozu ukončujeme činnost. Děkujeme za přízeň — zbývající zásoby
-> doprodáváme se slevou až 70 %, dokud vydrží.
+**Homepage sections (top to bottom):**
+1. Announcement bar (red) — "We're closing — up to 70% off"
+2. Hero — big headline + "Shop the sale" button + countdown
+3. Clearance grid — products with struck-through prices
+4. Trust badges — free shipping, official distributor, in stock now
+5. "How the sale works" — explanation + FAQ
 
 ---
 
-## 05 · Slevová strategie — 70 %
+## 04 · Storefront copy (Czech to paste + English meaning)
 
-Původní cenu nastavte jako **„Porovnávací cena" (compare-at)** (zobrazí se
-přeškrtnutá) a hlavní cenu na **30 %** původní.
+**Announcement bar:**
+> `UKONČUJEME PROVOZ · SLEVY AŽ 70 % · SKLADEM V OMEZENÉM MNOŽSTVÍ · DOPRAVA ZDARMA`
+>
+> *EN: "Closing down · Up to 70% off · Limited stock · Free shipping"*
 
-**Vzorec:** `nová = původní × 0,30`
+**Hero — headline:**
+> `Končíme. Vše musí pryč. Bazény a vířivky se slevou až 70 %.`
+>
+> *EN: "We're closing. Everything must go. Pools and hot tubs up to 70% off."*
 
-| Produkt | Původní (přeškrtnout) | Nová (−70 %) |
+**Hero — subtitle:**
+> `Doprodáváme celý sklad. Po vyprodání zásob definitivně zavíráme — poslední šance pořídit značkové bazény za zlomek ceny.`
+>
+> *EN: "We're selling off the whole warehouse. Once stock is gone we close for good — last chance to get brand-name pools for a fraction of the price."*
+
+**Button (CTA):**
+> `Zobrazit výprodej →` — *EN: "Shop the sale →"*
+
+**Product badge:**
+> `−70 % · Poslední kusy · Skladem ihned` — *EN: "−70% · Last units · In stock now"*
+
+**Product urgency line:**
+> `Doprodej skladu — po vyprodání se již nebude doplňovat.`
+>
+> *EN: "Warehouse clearance — will not be restocked once sold out."*
+
+**Footer / about:**
+> `Po letech provozu ukončujeme činnost. Děkujeme za přízeň — zbývající zásoby doprodáváme se slevou až 70 %, dokud vydrží.`
+>
+> *EN: "After years in business we're closing. Thank you for your support — we're clearing remaining stock at up to 70% off while it lasts."*
+
+---
+
+## 05 · Discount strategy — 70% off
+
+Put the original price in the **"Compare-at price"** field (shows struck-through)
+and set the main price to **30%** of the original. (Kč = Czech koruna.)
+
+**Formula:** `new = original × 0.30`
+
+| Product | Original (struck through) | New (−70%) |
 |---|--:|--:|
 | Intex Simple Spa | 2 399 Kč | 719 Kč |
 | Intex Ultra XTR | 2 399 Kč | 719 Kč |
 | WYBOT C1 robot | 2 199 Kč | 659 Kč |
 | MSPA Pebble | 2 179 Kč | 653 Kč |
-| Marimex Orlando 4,57 | 2 399 Kč | 719 Kč |
+| Marimex Orlando 4.57 | 2 399 Kč | 719 Kč |
 
-> ⚠ **Důvěryhodnost:** Aby sleva 70 % působila věrohodně a byla v souladu
-> s pravidly, compare-at cena by měla odpovídat **skutečné tržní ceně**.
-> Současné ceny ~2 200–2 400 Kč vypadají jako placeholder — u reálných bazénů
-> bývá běžná cena výrazně vyšší. Před spuštěním zkontrolujte.
+> ⚠ **Credibility / compliance:** For a 70% discount to look believable and
+> comply with EU/Czech pricing rules, the compare-at price should reflect the
+> **real market price**. Your current ~2,200–2,400 Kč prices look like
+> placeholders — real pools normally cost much more. Verify before launching.
 
-**Slevový kód (navíc):** `SBOHEM10` (dalších 10 % na rozloučenou, s koncovým
-datem). Alternativy: `KONCIME`, `POSLEDNI70`, `VSEPRYC`.
+**Discount code (on top of the sale):** `SBOHEM10` ("sbohem" = goodbye) for an
+extra 10% farewell discount, with an end date. Alternatives: `KONCIME`
+("we're closing"), `POSLEDNI70` ("last 70"), `VSEPRYC` ("all gone").
 
 ---
 
-## 06 · Postup krok za krokem
+## 06 · Step-by-step (in Shopify admin)
 
-1. ✓ **Kolekce výprodeje + úklid produktů** — hotovo.
-2. **Přejmenovat obchod** — Nastavení → Údaje o obchodě. Volitelně nová doména,
-   marimeex.cz jako přesměrování.
-3. **Nové logo a favicon** — barvy motivu: akcent `#DC3220`, pozadí `#F6F3ED`.
-4. **Oznamovací lišta + hero** — Motiv → Upravit; vložit texty ze sekce 04.
-5. **Nastavit ceny −70 %** — Produkty; původní → compare-at, hlavní × 0,30.
-6. **Kategorie kolekce** — Bazény, Vířivky, Příslušenství; nastavit menu.
-7. **Slevový kód** — Slevy; např. SBOHEM10 s koncovým datem.
-8. **Stránka „Jak doprodej funguje" + FAQ** — proč, dokdy, doprava, záruka.
-9. **Spustit a oznámit** — e-mail, sociální sítě, reklama.
+1. ✓ **Clearance collection + product cleanup** — done.
+2. **Rename the store** — Settings → Store details. Optionally a new domain,
+   keep marimeex.cz as a redirect. *Only you can do this — not available via API.*
+3. **New logo and favicon** — theme colors: accent `#DC3220`, background `#F6F3ED`.
+4. **Announcement bar + hero** — Online Store → Themes → Customize; paste
+   section 04 copy.
+5. **Set prices to −70%** — Products; original → compare-at, main × 0.30.
+6. **Category collections** — Pools, Hot tubs, Accessories; set the menu.
+7. **Farewell discount code** — Discounts; e.g. SBOHEM10 with an end date.
+8. **"How the sale works" page + FAQ** — Content → Pages.
+9. **Launch and announce** — email, social, ads.
+
+---
+
+*I can automate several of these for you (apply the −70% pricing, create the
+category collections, create the discount code, build the banner theme section).
+Just ask.*
