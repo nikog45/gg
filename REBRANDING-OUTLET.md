@@ -158,6 +158,92 @@ extra 10% farewell discount, with an end date. Alternatives: `KONCIME`
 
 ---
 
+## 07 · Theme color settings (exact field mapping)
+
+Type these into **Online Store → Themes → Customize → Colors**. `→` = change to.
+
+**General**
+| Field | Current | Set to |
+|---|---|---|
+| Background | `#FFFFFF` | **`#F6F3ED`** (warm paper; or keep white) |
+| Text | `#283355` | **`#14202A`** |
+| Success | `#00CD69` | **`#12A150`** |
+| Warning | `#FFA700` | **`#E39C2C`** |
+| Error | `#FF2B4A` | **`#C0281C`** |
+
+**Header**
+| Field | Current | Set to |
+|---|---|---|
+| Background | `#FEFEFE` | **`#FFFFFF`** |
+| Text | `#000000` | **`#14202A`** |
+
+**Footer** — ⚠ fixes a bug: white text on near-white is currently invisible
+| Field | Current | Set to |
+|---|---|---|
+| Background | `#FEFEFE` | **`#123A54`** (deep navy) |
+| Text | `#FFFFFF` | keep `#FFFFFF` |
+
+**Drawer / popover:** Background keep `#FFFFFF`.
+
+**Primary button** — the key urgency move
+| Field | Current | Set to |
+|---|---|---|
+| Background | `#00CD69` | **`#DC3220`** (clearance red) |
+| Text | `#FFFFFF` | keep `#FFFFFF` |
+
+**Secondary button**
+| Field | Current | Set to |
+|---|---|---|
+| Background | `#FFFFFF` | keep `#FFFFFF` |
+| Text | `#152B76` | **`#123A54`** |
+
+**Product**
+| Field | Current | Set to |
+|---|---|---|
+| Card background | `#FFFFFF` | keep `#FFFFFF` |
+| Card text | `#283355` | **`#14202A`** |
+| Star rating | `#FFA700` | **`#E39C2C`** (or keep) |
+| On sale accent | `#DC3220` | keep ✅ already correct |
+| Sold out badge | `#65708E` | keep |
+| Custom badge | `#17AEF3` | **`#123A54`** (navy — for "Poslední kusy" / "−70 %") |
+
+> **Contrast rule:** gold `#E39C2C` must never carry white text. Use it only
+> for star fills or with dark text. That's why the custom badge is navy (its
+> text is auto-white) — white-on-navy is readable, white-on-gold is not.
+
+---
+
+## 08 · Homepage structure (top → bottom)
+
+0. **Announcement bar** (above header) — red `#DC3220`, white text:
+   `UKONČUJEME PROVOZ · SLEVY AŽ 70 % · SKLADEM V OMEZENÉM MNOŽSTVÍ · DOPRAVA ZDARMA`.
+   Link to `/vyprodej-vse-musi-pryc`.
+1. **Header** — AquaOutlet logo, slim nav (Výprodej · Bazény · Vířivky ·
+   Příslušenství), cart. Minimal.
+2. **Hero banner** — pool photo (darkened) or navy `#123A54`. Headline
+   "Končíme. Vše musí pryč.", the subtitle from §04, red button
+   "Zobrazit výprodej →" → `/vyprodej-vse-musi-pryc`. Optional "−70 %" gold tag
+   + countdown to sale end.
+3. **Countdown / urgency strip** (optional) — "Výprodej končí za …".
+4. **Clearance product grid** — from `/vyprodej-vse-musi-pryc`, 6–8 products
+   with struck-through prices + red "−70 %" badge. Heading "Doprodej skladu",
+   button "Zobrazit vše →".
+5. **Category tiles** (3) — Bazény · Vířivky · Příslušenství, each linking to
+   its collection.
+6. **Trust badges** — Doprava zdarma · Oficiální distributor · Skladem ihned ·
+   Bezpečná platba.
+7. **"How the sale works" band** — why closing, until when, delivery, warranty
+   still applies; button to `/pages/doprodej`. *Reuse the `editorial-row`
+   section in this repo.*
+8. **Email capture** — "Nechte si poslat poslední slevy" (get the last deals).
+9. **Footer** — navy `#123A54`, white text: links, contact, closing info,
+   payment icons.
+
+*Optional social proof:* the `astheye-testimonials` section in this repo can go
+between 6 and 7.
+
+---
+
 *I can automate several of these for you (apply the −70% pricing, create the
 category collections, create the discount code, build the banner theme section).
 Just ask.*
