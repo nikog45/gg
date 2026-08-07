@@ -244,6 +244,77 @@ between 6 and 7.
 
 ---
 
+## 09 · "How the sale works" — image prompt + copy
+
+**Image prompt (text-free, for Canva / Midjourney / DALL·E, 3:2 landscape):**
+
+```
+A wide, editorial photograph of a bright warehouse showroom filled with
+above-ground swimming pools and inflatable hot tubs, neatly lined up in rows,
+some with large paper price tags hanging from them. Warm natural daylight from
+high windows, clean concrete floor, calm and organised atmosphere. Colour
+palette leans warm off-white and deep teal-navy with occasional bold red
+price-tag accents. Realistic product photography, soft shadows, shallow depth
+of field, negative space on the left third for text overlay. No text, no logos,
+no watermarks. Photorealistic, high detail, 3:2 landscape.
+```
+
+Alternate (trust/delivery vibe): replace the first sentence with *"A friendly
+delivery courier handing a boxed pool pump to a smiling homeowner at a front
+door, sunny suburban setting"*, keep the rest.
+
+**Homepage band copy:**
+- Heading: `Jak doprodej funguje` — *"How the clearance sale works"*
+- Body: `Po letech provozu ukončujeme činnost a doprodáváme celý sklad se slevou
+  až 70 %. Zboží je nové, originální a skladem — odesíláme ihned. Záruka i
+  možnost vrácení platí i během výprodeje. Množství je omezené, po vyprodání se
+  již nedoplňuje.`
+- Button: `Zjistit více →` → `/pages/doprodej`
+
+---
+
+## 10 · `/doprodej` page — full structure (Czech + EN)
+
+**1. Title / intro**
+- Title: `Ukončujeme provoz – výprodej skladu` — *"We're closing down – warehouse clearance"*
+- Intro: `Děkujeme, že jste s námi byli. Po letech provozu končíme a rozprodáváme
+  všechny zbývající zásoby bazénů, vířivek a příslušenství se slevou až 70 %.
+  Na této stránce najdete vše důležité o průběhu výprodeje.`
+
+**2. Three reassurance points**
+- `Nové a originální zboží` — Vše prodáváme nové, zabalené a od oficiálních značek.
+- `Skladem, odesíláme ihned` — Co je na webu, je skladem. Odesíláme do 24–48 hodin.
+- `Záruka a vrácení platí` — I během výprodeje máte zákonnou záruku a 14 dní na vrácení.
+
+**3. Why we're closing**
+- `Po několika sezónách jsme se rozhodli provoz obchodu ukončit. Namísto
+  skladování zbývajících zásob je nabízíme našim zákazníkům za výrazně snížené
+  ceny. Je to poslední příležitost pořídit si kvalitní bazény a vířivky za
+  zlomek původní ceny.`
+
+**4. How to order (3 steps)**
+- `Vyberte zboží` — Projděte výprodej a přidejte položky do košíku.
+- `Dokončete objednávku` — Bezpečná platba kartou nebo převodem, doprava zdarma.
+- `Doručíme k vám` — Odesíláme ihned ze skladu, dokud zásoby vydrží.
+
+**5. FAQ (accordion)**
+- `Jsou ceny opravdu konečné?` → `Ano. Uvedené ceny jsou již po slevě až 70 % a jsou konečné.`
+- `Platí záruka i na výprodejové zboží?` → `Ano, na veškeré zboží se vztahuje zákonná záruka 24 měsíců.`
+- `Můžu zboží vrátit?` → `Ano, máte 14 dní na vrácení bez udání důvodu.`
+- `Jak dlouho výprodej potrvá?` → `Do vyprodání zásob. Po vyprodání se zboží již nedoplňuje.`
+- `Kolik stojí doprava?` → `Doprava je po celé ČR zdarma.`
+- `Jak vás mohu kontaktovat?` → `Napište nám na [váš e-mail] — rádi poradíme.`
+
+**6. Final CTA band**
+- Heading: `Poslední kusy mizí rychle` — *"The last units are going fast"*
+- Button: `Zobrazit výprodej →` → `/vyprodej-vse-musi-pryc`
+
+> ⚠ Replace `[váš e-mail]` with your real address. Only keep the 14-day returns
+> / 24-month warranty lines if you can genuinely honour them (Czech/EU legal
+> norms) — make sure a closing business can still fulfil returns before promising.
+
+---
+
 *I can automate several of these for you (apply the −70% pricing, create the
 category collections, create the discount code, build the banner theme section).
 Just ask.*
