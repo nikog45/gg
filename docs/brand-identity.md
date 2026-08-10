@@ -40,20 +40,24 @@ Sample lines:
 
 ## 4. Colour palette
 
-Warm, natural, garden-grounded — a chosen neutral (oat), a calm forest green as the
-brand/CTA colour, and a warm amber-terracotta accent for energy & discounts.
+Bright, clean, high-contrast — the look Czech shoppers trust for tech + deals (Alza,
+Datart, Mall): white ground, navy text, sky-blue header, green action buttons, red for
+sale, amber for ratings.
 
-| Token | Light | Dark | Role |
-|---|---|---|---|
-| Ground | `#F7F6F1` oat | `#12160F` deep pine | Page background |
-| Surface | `#FFFFFF` | `#1B211A` | Cards |
-| Ink | `#1C231E` pine-black | `#ECEADE` | Text |
-| Brand | `#2F5D4E` forest green | `#7BB79B` | Logo, CTAs, links |
-| Accent | `#BE6E28` amber-terracotta | `#E0995A` | Badges, discounts, highlights |
-| Muted | `#5B625B` | `#A6AC9F` | Secondary text |
+| Token | Hex | Role |
+|---|---|---|
+| Background | `#FFFFFF` | Page & card ground |
+| Text | `#283555` | Body / card text (navy) |
+| Header | `#17AEF3` | Header bar; also "custom" badges (text `#FFFFFF`) |
+| Primary / CTA | `#00CD69` | Buttons, savings chips, in-stock, trust checks (text `#FFFFFF`) |
+| Sale / on-sale | `#FF2B4A` | Discount badges, sale price, countdown, urgency |
+| Star rating | `#FFA700` | Stars & "warning"/highlight accents |
+| Secondary btn | bg `#FFFFFF` / text `#152B76` | Outline buttons |
+| Sold-out badge | `#E5708E` | Out-of-stock |
+| Footer | bg `#F5F6F7` | Footer band (use dark text `#283555` for contrast) |
 
-Semantic: success/in-stock `#2F7D5B`. Keep the accent for energy only — never let it
-fight the green.
+Semantic: success/in-stock = the primary green `#00CD69`. Red is reserved for sale &
+urgency only — don't use it for non-sale UI.
 
 ## 5. Typography
 
