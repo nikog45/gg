@@ -1,0 +1,286 @@
+{%- comment -%}
+  Navimow Hero — product landing section for the hero product (robotická sekačka).
+  Built for the Czech market: wire-free hook, CZK pricing, and the local trust
+  stack (Zásilkovna, dobírka, 14 dní na vrácení, záruka, Ověřeno zákazníky).
+  Content is editable from the theme editor; Czech defaults are pre-filled.
+{%- endcomment -%}
+
+<style>
+  .nmw {
+    --nmw-ink: {{ section.settings.ink_color }};
+    --nmw-brand: {{ section.settings.brand_color }};
+    --nmw-accent: {{ section.settings.accent_color }};
+    --nmw-bg: {{ section.settings.bg_color }};
+    background: var(--nmw-bg);
+    color: var(--nmw-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  .nmw__inner { max-width: 1280px; margin: 0 auto; padding: 40px 1.5rem 28px; }
+
+  .nmw__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  @media (min-width: 840px) {
+    .nmw__grid { grid-template-columns: 1.05fr 1fr; gap: 48px; }
+  }
+
+  /* ── Media ── */
+  .nmw__media { position: relative; }
+  .nmw__media img {
+    width: 100%; height: auto; display: block;
+    border-radius: 16px; background: #eee;
+  }
+  .nmw__flag {
+    position: absolute; top: 14px; left: 14px;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--nmw-accent); color: #fff;
+    font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+    padding: 7px 12px; border-radius: 999px;
+  }
+
+  /* ── Copy ── */
+  .nmw__eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--nmw-brand); margin: 0 0 10px;
+  }
+  .nmw__title {
+    font-size: 34px; line-height: 1.1; font-weight: 900; letter-spacing: -.5px; margin: 0 0 6px;
+  }
+  @media (min-width: 840px) { .nmw__title { font-size: 42px; } }
+  .nmw__hook { font-size: 18px; color: var(--nmw-brand); font-weight: 700; margin: 0 0 16px; }
+
+  .nmw__rating { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; }
+  .nmw__stars { color: var(--nmw-accent); font-size: 18px; letter-spacing: 2px; }
+  .nmw__rating small { color: #6b6b6b; font-size: 13px; }
+
+  .nmw__price { display: flex; align-items: baseline; gap: 12px; margin: 0 0 4px; }
+  .nmw__price-now { font-size: 32px; font-weight: 900; letter-spacing: -.5px; }
+  .nmw__price-was { font-size: 17px; color: #9a9a9a; text-decoration: line-through; }
+  .nmw__price-save {
+    font-size: 12px; font-weight: 800; color: #fff; background: var(--nmw-accent);
+    padding: 3px 8px; border-radius: 6px;
+  }
+  .nmw__price-note { font-size: 12.5px; color: #6b6b6b; margin: 0 0 20px; }
+
+  .nmw__cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 100%; text-align: center;
+    background: var(--nmw-brand); color: #fff; text-decoration: none;
+    font-size: 17px; font-weight: 800; letter-spacing: .01em;
+    padding: 16px 24px; border-radius: 12px; border: none; cursor: pointer;
+    transition: transform .12s ease, filter .12s ease;
+  }
+  .nmw__cta:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  .nmw__cta-note { text-align: center; font-size: 12.5px; color: #6b6b6b; margin: 10px 0 0; }
+
+  /* ── Trust bar ── */
+  .nmw__trust {
+    border-top: 1px solid rgba(0,0,0,.08);
+    margin-top: 22px; padding-top: 8px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px 18px;
+  }
+  @media (min-width: 560px) { .nmw__trust { grid-template-columns: repeat(3, 1fr); } }
+  .nmw__trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: var(--nmw-ink);
+    padding: 10px 0;
+  }
+  .nmw__trust-item svg { flex: 0 0 auto; width: 18px; height: 18px; color: var(--nmw-brand); }
+
+  /* ── Benefits strip ── */
+  .nmw__benefits {
+    max-width: 1280px; margin: 0 auto; padding: 4px 1.5rem 44px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  @media (min-width: 720px) { .nmw__benefits { grid-template-columns: repeat(4, 1fr); } }
+  .nmw__benefit {
+    background: rgba(0,0,0,.02); border: 1px solid rgba(0,0,0,.07);
+    border-radius: 14px; padding: 18px 16px;
+  }
+  .nmw__benefit-k { font-size: 22px; font-weight: 900; color: var(--nmw-brand); letter-spacing: -.5px; }
+  .nmw__benefit-t { font-size: 13.5px; font-weight: 700; margin: 6px 0 2px; }
+  .nmw__benefit-d { font-size: 12.5px; color: #6b6b6b; line-height: 1.45; }
+
+  /* ── Payment row ── */
+  .nmw__pay {
+    max-width: 1280px; margin: 0 auto; padding: 0 1.5rem 40px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    font-size: 12.5px; color: #6b6b6b;
+  }
+  .nmw__pay b { color: var(--nmw-ink); }
+  .nmw__chip {
+    background: #fff; border: 1px solid rgba(0,0,0,.12); border-radius: 8px;
+    padding: 6px 11px; font-size: 12px; font-weight: 700; color: var(--nmw-ink);
+  }
+</style>
+
+<section class="nmw">
+  <div class="nmw__inner">
+    <div class="nmw__grid">
+
+      <div class="nmw__media">
+        {%- if section.settings.image != blank -%}
+          <img src="{{ section.settings.image | image_url: width: 1200 }}"
+               alt="{{ section.settings.product_title | escape }}" loading="lazy">
+        {%- else -%}
+          <img src="{{ 'product-1' | placeholder_svg_tag }}" alt="">
+        {%- endif -%}
+        {%- if section.settings.flag_text != blank -%}
+          <span class="nmw__flag">{{ section.settings.flag_text }}</span>
+        {%- endif -%}
+      </div>
+
+      <div class="nmw__copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="nmw__eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h1 class="nmw__title">{{ section.settings.product_title }}</h1>
+        {%- if section.settings.hook != blank -%}
+          <p class="nmw__hook">{{ section.settings.hook }}</p>
+        {%- endif -%}
+
+        <div class="nmw__rating">
+          <span class="nmw__stars">★★★★★</span>
+          <small>{{ section.settings.rating_text }}</small>
+        </div>
+
+        <div class="nmw__price">
+          <span class="nmw__price-now">{{ section.settings.price }}</span>
+          {%- if section.settings.compare_price != blank -%}
+            <span class="nmw__price-was">{{ section.settings.compare_price }}</span>
+          {%- endif -%}
+          {%- if section.settings.save_text != blank -%}
+            <span class="nmw__price-save">{{ section.settings.save_text }}</span>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.price_note != blank -%}
+          <p class="nmw__price-note">{{ section.settings.price_note }}</p>
+        {%- endif -%}
+
+        <a class="nmw__cta" href="{{ section.settings.cta_link | default: '#' }}">
+          {{ section.settings.cta_label }}
+        </a>
+        {%- if section.settings.cta_note != blank -%}
+          <p class="nmw__cta-note">{{ section.settings.cta_note }}</p>
+        {%- endif -%}
+
+        <div class="nmw__trust">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'trust' -%}
+              <div class="nmw__trust-item" {{ block.shopify_attributes }}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5"/>
+                </svg>
+                <span>{{ block.settings.label }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {%- assign has_benefits = false -%}
+  {%- for block in section.blocks -%}{%- if block.type == 'benefit' -%}{%- assign has_benefits = true -%}{%- endif -%}{%- endfor -%}
+  {%- if has_benefits -%}
+    <div class="nmw__benefits">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'benefit' -%}
+          <div class="nmw__benefit" {{ block.shopify_attributes }}>
+            <div class="nmw__benefit-k">{{ block.settings.value }}</div>
+            <div class="nmw__benefit-t">{{ block.settings.title }}</div>
+            <div class="nmw__benefit-d">{{ block.settings.desc }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.pay_label != blank -%}
+    <div class="nmw__pay">
+      <b>{{ section.settings.pay_label }}</b>
+      {%- assign chips = section.settings.pay_chips | split: ',' -%}
+      {%- for chip in chips -%}
+        <span class="nmw__chip">{{ chip | strip }}</span>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Navimow Hero (produkt)",
+  "tag": "section",
+  "class": "section-navimow-hero",
+  "settings": [
+    { "type": "header", "content": "Barvy" },
+    { "type": "color", "id": "bg_color", "label": "Pozadí", "default": "#F7F6F1" },
+    { "type": "color", "id": "ink_color", "label": "Text", "default": "#1C231E" },
+    { "type": "color", "id": "brand_color", "label": "Značka (CTA)", "default": "#2F5D4E" },
+    { "type": "color", "id": "accent_color", "label": "Akcent", "default": "#BE6E28" },
+
+    { "type": "header", "content": "Produkt" },
+    { "type": "image_picker", "id": "image", "label": "Fotka produktu" },
+    { "type": "text", "id": "flag_text", "label": "Odznak na fotce", "default": "Bez obvodového drátu" },
+    { "type": "text", "id": "eyebrow", "label": "Nadtitulek", "default": "Robotická sekačka · Produkt roku 2024 na Heurece" },
+    { "type": "text", "id": "product_title", "label": "Název produktu", "default": "Segway Navimow i108E" },
+    { "type": "text", "id": "hook", "label": "Hlavní benefit", "default": "Posekaný trávník bez zvedání prstu — a bez drátu okolo zahrady." },
+    { "type": "text", "id": "rating_text", "label": "Text hodnocení", "default": "94 % spokojených zákazníků · Ověřeno zákazníky" },
+
+    { "type": "header", "content": "Cena" },
+    { "type": "text", "id": "price", "label": "Cena", "default": "24 990 Kč" },
+    { "type": "text", "id": "compare_price", "label": "Původní cena", "default": "32 990 Kč" },
+    { "type": "text", "id": "save_text", "label": "Úspora", "default": "Ušetříte 8 000 Kč" },
+    { "type": "text", "id": "price_note", "label": "Poznámka k ceně", "default": "Rozložte platbu s Twisto nebo Skip Pay. Cena včetně DPH." },
+
+    { "type": "header", "content": "Výzva k akci" },
+    { "type": "text", "id": "cta_label", "label": "Text tlačítka", "default": "Přidat do košíku" },
+    { "type": "url", "id": "cta_link", "label": "Odkaz tlačítka" },
+    { "type": "text", "id": "cta_note", "label": "Poznámka pod tlačítkem", "default": "Skladem · Odesíláme dnes · Doručení Zásilkovnou do 2 dnů" },
+
+    { "type": "header", "content": "Platební metody" },
+    { "type": "text", "id": "pay_label", "label": "Popisek", "default": "Zaplatíte jak chcete:" },
+    { "type": "text", "id": "pay_chips", "label": "Metody (oddělené čárkou)", "default": "Kartou, Apple Pay, Google Pay, Dobírka, Bankovní převod, Twisto" }
+  ],
+  "blocks": [
+    {
+      "type": "trust",
+      "name": "Prvek důvěry",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Text", "default": "Doprava zdarma nad 1 500 Kč" }
+      ]
+    },
+    {
+      "type": "benefit",
+      "name": "Klíčový benefit",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Hodnota", "default": "800 m²" },
+        { "type": "text", "id": "title", "label": "Titulek", "default": "Pokryje zahradu" },
+        { "type": "text", "id": "desc", "label": "Popis", "default": "Ideální pro běžnou českou zahradu i chatu." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Navimow Hero (produkt)",
+      "blocks": [
+        { "type": "trust", "settings": { "label": "Doprava Zásilkovnou zdarma nad 1 500 Kč" } },
+        { "type": "trust", "settings": { "label": "Platba dobírkou možná" } },
+        { "type": "trust", "settings": { "label": "14 dní na vrácení bez udání důvodu" } },
+        { "type": "trust", "settings": { "label": "24 měsíců záruka" } },
+        { "type": "trust", "settings": { "label": "Ověřeno zákazníky (Heureka)" } },
+        { "type": "trust", "settings": { "label": "Český zákaznický servis" } },
+        { "type": "benefit", "settings": { "value": "Bez drátu", "title": "GPS/RTK navigace", "desc": "Žádné kopání a pokládání drátu. Instalace za odpoledne." } },
+        { "type": "benefit", "settings": { "value": "800 m²", "title": "Pokryje zahradu", "desc": "Ideální pro běžnou českou zahradu i chatu." } },
+        { "type": "benefit", "settings": { "value": "58 dB", "title": "Tichý provoz", "desc": "Poseká i večer, aniž by rušil sousedy." } },
+        { "type": "benefit", "settings": { "value": "V appce", "title": "Řízení z mobilu", "desc": "Plán sekání, mapa a hlídání proti krádeži v telefonu." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
