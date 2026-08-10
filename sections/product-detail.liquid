@@ -1,0 +1,226 @@
+{%- comment -%}
+  Product Detail — conversion layer for a high-ticket (~600 EUR) purchase.
+  Built to win the objections a Czech buyer has when comparing an unknown shop
+  against Alza on the identical SKU: specs (proof), a comparison table,
+  "why buy from us" differentiation, and an FAQ. Pairs with navimow-hero.liquid.
+  All content editable in the theme editor.
+{%- endcomment -%}
+
+<style>
+  .upd {
+    --upd-bg: {{ section.settings.bg_color }};
+    --upd-ink: {{ section.settings.ink_color }};
+    --upd-brand: {{ section.settings.brand_color }};
+    --upd-accent: {{ section.settings.accent_color }};
+    --upd-surface: {{ section.settings.surface_color }};
+    background: var(--upd-bg); color: var(--upd-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  .upd__in { max-width: 1080px; margin: 0 auto; padding: 46px 1.5rem; }
+  .upd__eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--upd-accent); margin: 0 0 8px; }
+  .upd__h2 { font-size: 28px; font-weight: 900; letter-spacing: -.4px; margin: 0 0 22px; }
+
+  /* specs */
+  .upd__specs { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.08); border-radius: 14px; overflow: hidden; }
+  @media (min-width: 620px) { .upd__specs { grid-template-columns: 1fr 1fr; } }
+  .upd__spec { background: var(--upd-surface); padding: 15px 18px; display: flex; justify-content: space-between; gap: 16px; font-size: 14.5px; }
+  .upd__spec .k { color: var(--upd-ink); opacity: .7; }
+  .upd__spec .v { font-weight: 700; text-align: right; }
+
+  /* why us */
+  .upd__why { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 680px) { .upd__why { grid-template-columns: repeat(3, 1fr); } }
+  .upd__whycard { background: var(--upd-surface); border: 1px solid rgba(0,0,0,.08); border-radius: 16px; padding: 22px; }
+  .upd__whyi { width: 40px; height: 40px; border-radius: 11px; background: var(--upd-accent); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .upd__whyi svg { width: 22px; height: 22px; }
+  .upd__whycard h3 { font-size: 16.5px; margin: 0 0 5px; }
+  .upd__whycard p { font-size: 14px; color: var(--upd-ink); opacity: .75; margin: 0; }
+
+  /* comparison */
+  .upd__tablewrap { overflow-x: auto; border: 1px solid rgba(0,0,0,.1); border-radius: 16px; }
+  .upd__table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 14.5px; }
+  .upd__table th, .upd__table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid rgba(0,0,0,.08); }
+  .upd__table thead th { background: var(--upd-surface); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; opacity: .6; }
+  .upd__table thead th.us { color: var(--upd-brand); opacity: 1; font-weight: 800; }
+  .upd__table td.us { color: var(--upd-brand); font-weight: 700; }
+  .upd__table td.them { opacity: .6; }
+  .upd__table tbody tr:last-child td { border-bottom: none; }
+
+  /* faq */
+  .upd__faq { max-width: 760px; }
+  .upd__q { border-bottom: 1px solid rgba(0,0,0,.1); }
+  .upd__q summary { cursor: pointer; list-style: none; padding: 16px 0; font-weight: 700; font-size: 16px; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+  .upd__q summary::-webkit-details-marker { display: none; }
+  .upd__q summary::after { content: "+"; color: var(--upd-accent); font-size: 22px; font-weight: 700; flex: 0 0 auto; }
+  .upd__q[open] summary::after { content: "−"; }
+  .upd__q p { margin: 0 0 18px; font-size: 15px; color: var(--upd-ink); opacity: .8; line-height: 1.6; }
+
+  .upd__block { margin-bottom: 44px; }
+  .upd__block:last-child { margin-bottom: 0; }
+</style>
+
+<section class="upd">
+  <div class="upd__in">
+
+    {%- assign has_spec = false -%}{%- assign has_why = false -%}{%- assign has_cmp = false -%}{%- assign has_faq = false -%}
+    {%- for b in section.blocks -%}
+      {%- case b.type -%}
+        {%- when 'spec' -%}{%- assign has_spec = true -%}
+        {%- when 'why' -%}{%- assign has_why = true -%}
+        {%- when 'compare' -%}{%- assign has_cmp = true -%}
+        {%- when 'faq' -%}{%- assign has_faq = true -%}
+      {%- endcase -%}
+    {%- endfor -%}
+
+    {%- if has_spec -%}
+      <div class="upd__block">
+        <p class="upd__eyebrow">{{ section.settings.spec_eyebrow }}</p>
+        <h2 class="upd__h2">{{ section.settings.spec_title }}</h2>
+        <div class="upd__specs">
+          {%- for b in section.blocks -%}{%- if b.type == 'spec' -%}
+            <div class="upd__spec" {{ b.shopify_attributes }}><span class="k">{{ b.settings.label }}</span><span class="v">{{ b.settings.value }}</span></div>
+          {%- endif -%}{%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if has_why -%}
+      <div class="upd__block">
+        <p class="upd__eyebrow">{{ section.settings.why_eyebrow }}</p>
+        <h2 class="upd__h2">{{ section.settings.why_title }}</h2>
+        <div class="upd__why">
+          {%- for b in section.blocks -%}{%- if b.type == 'why' -%}
+            <div class="upd__whycard" {{ b.shopify_attributes }}>
+              <div class="upd__whyi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+              <h3>{{ b.settings.title }}</h3>
+              <p>{{ b.settings.desc }}</p>
+            </div>
+          {%- endif -%}{%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if has_cmp -%}
+      <div class="upd__block">
+        <p class="upd__eyebrow">{{ section.settings.cmp_eyebrow }}</p>
+        <h2 class="upd__h2">{{ section.settings.cmp_title }}</h2>
+        <div class="upd__tablewrap">
+          <table class="upd__table">
+            <thead><tr>
+              <th>{{ section.settings.cmp_col_feature }}</th>
+              <th class="us">{{ section.settings.cmp_col_us }}</th>
+              <th>{{ section.settings.cmp_col_them }}</th>
+            </tr></thead>
+            <tbody>
+              {%- for b in section.blocks -%}{%- if b.type == 'compare' -%}
+                <tr {{ b.shopify_attributes }}>
+                  <td>{{ b.settings.feature }}</td>
+                  <td class="us">{{ b.settings.us }}</td>
+                  <td class="them">{{ b.settings.them }}</td>
+                </tr>
+              {%- endif -%}{%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if has_faq -%}
+      <div class="upd__block">
+        <p class="upd__eyebrow">{{ section.settings.faq_eyebrow }}</p>
+        <h2 class="upd__h2">{{ section.settings.faq_title }}</h2>
+        <div class="upd__faq">
+          {%- for b in section.blocks -%}{%- if b.type == 'faq' -%}
+            <details class="upd__q" {{ b.shopify_attributes }}>
+              <summary>{{ b.settings.q }}</summary>
+              <p>{{ b.settings.a }}</p>
+            </details>
+          {%- endif -%}{%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Detail produktu (důvěra)",
+  "tag": "section",
+  "class": "section-product-detail",
+  "settings": [
+    { "type": "header", "content": "Barvy" },
+    { "type": "color", "id": "bg_color", "label": "Pozadí", "default": "#F7F6F1" },
+    { "type": "color", "id": "surface_color", "label": "Karty", "default": "#FFFFFF" },
+    { "type": "color", "id": "ink_color", "label": "Text", "default": "#1C231E" },
+    { "type": "color", "id": "brand_color", "label": "Značka", "default": "#2F5D4E" },
+    { "type": "color", "id": "accent_color", "label": "Akcent", "default": "#BE6E28" },
+
+    { "type": "header", "content": "Parametry" },
+    { "type": "text", "id": "spec_eyebrow", "label": "Nadtitulek", "default": "Parametry" },
+    { "type": "text", "id": "spec_title", "label": "Titulek", "default": "Co přesně dostanete" },
+
+    { "type": "header", "content": "Proč u nás" },
+    { "type": "text", "id": "why_eyebrow", "label": "Nadtitulek", "default": "Proč nakoupit u nás" },
+    { "type": "text", "id": "why_title", "label": "Titulek", "default": "Stejný robot. Lepší péče." },
+
+    { "type": "header", "content": "Srovnání" },
+    { "type": "text", "id": "cmp_eyebrow", "label": "Nadtitulek", "default": "Srovnání" },
+    { "type": "text", "id": "cmp_title", "label": "Titulek", "default": "Robotická sekačka vs. sekání ručně" },
+    { "type": "text", "id": "cmp_col_feature", "label": "Sloupec 1", "default": "" },
+    { "type": "text", "id": "cmp_col_us", "label": "Sloupec 2", "default": "S robotem" },
+    { "type": "text", "id": "cmp_col_them", "label": "Sloupec 3", "default": "Ručně" },
+
+    { "type": "header", "content": "Časté dotazy" },
+    { "type": "text", "id": "faq_eyebrow", "label": "Nadtitulek", "default": "Časté dotazy" },
+    { "type": "text", "id": "faq_title", "label": "Titulek", "default": "Na co se ptáte nejčastěji" }
+  ],
+  "blocks": [
+    { "type": "spec", "name": "Parametr", "settings": [
+      { "type": "text", "id": "label", "label": "Název", "default": "Plocha" },
+      { "type": "text", "id": "value", "label": "Hodnota", "default": "až 500 m²" }
+    ]},
+    { "type": "why", "name": "Proč u nás", "settings": [
+      { "type": "text", "id": "title", "label": "Titulek", "default": "Český servis" },
+      { "type": "textarea", "id": "desc", "label": "Popis", "default": "Zvedneme telefon a poradíme česky. Žádná fronta na chatbota." }
+    ]},
+    { "type": "compare", "name": "Řádek srovnání", "settings": [
+      { "type": "text", "id": "feature", "label": "Vlastnost", "default": "Váš čas" },
+      { "type": "text", "id": "us", "label": "My", "default": "Nula hodin týdně" },
+      { "type": "text", "id": "them", "label": "Oni", "default": "1–2 hodiny každý týden" }
+    ]},
+    { "type": "faq", "name": "Dotaz", "settings": [
+      { "type": "text", "id": "q", "label": "Otázka", "default": "Musím kolem zahrady kopat drát?" },
+      { "type": "textarea", "id": "a", "label": "Odpověď", "default": "Ne. Sekačka jezdí podle GPS a kamery. Okraj zahrady jednou projdete v aplikaci — hotovo za odpoledne." }
+    ]}
+  ],
+  "presets": [
+    {
+      "name": "Detail produktu (důvěra)",
+      "blocks": [
+        { "type": "spec", "settings": { "label": "Plocha trávníku", "value": "až 500 m²" } },
+        { "type": "spec", "settings": { "label": "Navigace", "value": "GPS + kamera, bez drátu" } },
+        { "type": "spec", "settings": { "label": "Hlučnost", "value": "57 dB — tichá i večer" } },
+        { "type": "spec", "settings": { "label": "Sklon", "value": "až 40 %" } },
+        { "type": "spec", "settings": { "label": "Ovládání", "value": "mobilní aplikace" } },
+        { "type": "spec", "settings": { "label": "Ochrana", "value": "senzor zvednutí + alarm" } },
+
+        { "type": "why", "settings": { "title": "Český servis, který zvedne telefon", "desc": "Poradíme s výběrem i instalací — česky, bez čekání na chatbota." } },
+        { "type": "why", "settings": { "title": "Doprava Zásilkovnou a dobírka", "desc": "Zaplatíte až při převzetí, když si vše osaháte. U nás v pohodě." } },
+        { "type": "why", "settings": { "title": "14 dní na vrácení + 24 měsíců záruka", "desc": "Nesedne? Vrátíte bez udání důvodu. Klidný nákup bez rizika." } },
+
+        { "type": "compare", "settings": { "feature": "Váš čas každý týden", "us": "0 hodin", "them": "1–2 hodiny sekání" } },
+        { "type": "compare", "settings": { "feature": "Vzhled trávníku", "us": "Pořád posekaný", "them": "Roste, než se dostanete" } },
+        { "type": "compare", "settings": { "feature": "Hluk pro sousedy", "us": "57 dB, seká i večer", "them": "Benzínová sekačka o víkendu" } },
+        { "type": "compare", "settings": { "feature": "Námaha", "us": "Žádná", "them": "Tlačení do kopce" } },
+
+        { "type": "faq", "settings": { "q": "Musím kolem zahrady kopat drát?", "a": "Ne. Sekačka jezdí podle GPS a kamery. Okraj zahrady jednou projdete v aplikaci — hotovo za odpoledne, žádné kopání." } },
+        { "type": "faq", "settings": { "q": "Zvládne nerovný terén a svahy?", "a": "Ano, zvládá sklon až 40 %. Kamera navíc rozpozná překážky, děti i domácí mazlíčky a objede je." } },
+        { "type": "faq", "settings": { "q": "Co když se něco pokazí?", "a": "Máte 24 měsíců záruku a český servis. Zavoláte, my to vyřešíme — česky a rychle." } },
+        { "type": "faq", "settings": { "q": "Jak zaplatím?", "a": "Kartou, Apple/Google Pay, bankovním převodem, na splátky přes Twisto/Skip Pay, nebo dobírkou při převzetí." } },
+        { "type": "faq", "settings": { "q": "Kdy a jak dorazí?", "a": "Skladem odesíláme týž den. Zásilkovnou jste ji zpravidla máte do 2 pracovních dnů, doprava zdarma nad 1 500 Kč." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
