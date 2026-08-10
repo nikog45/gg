@@ -1,201 +1,218 @@
 {%- comment -%}
-  Home Hero — Útulno homepage: brand promise + dual hero-product cards + trust strip.
-  Positioning: effortless home & garden — smart helpers do the boring work.
-  Brand name, colours, copy and the two products are all editable in the theme editor.
+  Home Hero (OUTLET) — Útulno homepage in outlet style, modelled on gioiacasa.it:
+  a "–XX % · ends today" announcement bar with a live countdown, bold discount
+  badges + strikethrough prices + savings, urgency, a 4-icon trust row, and the
+  two hero products. Clean/premium outlet, not garish. Everything editable.
 {%- endcomment -%}
 
 <style>
-  .uhh {
-    --uhh-bg: {{ section.settings.bg_color }};
-    --uhh-ink: {{ section.settings.ink_color }};
-    --uhh-brand: {{ section.settings.brand_color }};
-    --uhh-accent: {{ section.settings.accent_color }};
-    --uhh-surface: {{ section.settings.surface_color }};
-    background: var(--uhh-bg);
-    color: var(--uhh-ink);
+  .uho {
+    --uho-bg: {{ section.settings.bg_color }};
+    --uho-ink: {{ section.settings.ink_color }};
+    --uho-brand: {{ section.settings.brand_color }};
+    --uho-accent: {{ section.settings.accent_color }};
+    --uho-sale: {{ section.settings.sale_color }};
+    --uho-surface: {{ section.settings.surface_color }};
+    background: var(--uho-bg); color: var(--uho-ink);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   }
-  .uhh__top { max-width: 1180px; margin: 0 auto; padding: 54px 1.5rem 30px; text-align: center; }
-  .uhh__brand {
-    font-family: Georgia, "Iowan Old Style", serif; font-weight: 700;
-    font-size: 30px; color: var(--uhh-brand); letter-spacing: -.01em; margin: 0 0 4px;
+  /* announcement / countdown */
+  .uho__bar {
+    background: var(--uho-sale); color: #fff; text-align: center;
+    padding: 10px 14px; font-size: 14px; font-weight: 700; letter-spacing: .01em;
+    display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
   }
-  .uhh__brand .dot { color: var(--uhh-accent); }
-  .uhh__eyebrow {
-    font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-    color: var(--uhh-accent); margin: 0 0 14px;
+  .uho__count {
+    display: inline-flex; gap: 4px; font-variant-numeric: tabular-nums;
+    background: rgba(0,0,0,.22); padding: 3px 9px; border-radius: 6px; font-weight: 800;
   }
-  .uhh__headline {
-    font-size: 34px; line-height: 1.12; font-weight: 900; letter-spacing: -.6px;
-    margin: 0 auto 14px; max-width: 18ch;
-  }
-  @media (min-width: 760px) { .uhh__headline { font-size: 48px; } }
-  .uhh__sub { font-size: 17px; color: var(--uhh-ink); opacity: .8; max-width: 56ch; margin: 0 auto; }
+  .uho__top { max-width: 1180px; margin: 0 auto; padding: 40px 1.5rem 8px; text-align: center; }
+  .uho__brand { font-family: Georgia,"Iowan Old Style",serif; font-weight: 700; font-size: 28px; color: var(--uho-brand); margin: 0 0 4px; }
+  .uho__brand .dot { color: var(--uho-accent); }
+  .uho__eyebrow { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--uho-sale); margin: 0 0 12px; }
+  .uho__headline { font-size: 32px; line-height: 1.12; font-weight: 900; letter-spacing: -.6px; margin: 0 auto 12px; max-width: 20ch; }
+  @media (min-width: 760px) { .uho__headline { font-size: 46px; } }
+  .uho__sub { font-size: 16px; opacity: .8; max-width: 56ch; margin: 0 auto; }
 
-  /* product cards */
-  .uhh__grid {
-    max-width: 1180px; margin: 0 auto; padding: 8px 1.5rem 20px;
-    display: grid; grid-template-columns: 1fr; gap: 20px;
-  }
-  @media (min-width: 780px) { .uhh__grid { grid-template-columns: 1fr 1fr; } }
+  /* trust icons row (like gioiacasa) */
+  .uho__icons { max-width: 1180px; margin: 0 auto; padding: 18px 1.5rem 6px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+  @media (min-width: 720px) { .uho__icons { grid-template-columns: repeat(4,1fr); } }
+  .uho__ic { display: flex; align-items: center; gap: 9px; justify-content: center; font-size: 13px; font-weight: 600; }
+  .uho__ic .em { font-size: 18px; }
 
-  .uhh__card {
-    background: var(--uhh-surface); border: 1px solid rgba(0,0,0,.08);
-    border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;
-  }
-  .uhh__media {
-    aspect-ratio: 16/10; background: linear-gradient(160deg,#dfe7df,#c7d3c4);
-    position: relative; display: flex; align-items: center; justify-content: center;
-  }
-  .uhh__media img { width: 100%; height: 100%; object-fit: cover; }
-  .uhh__tag {
-    position: absolute; top: 14px; left: 14px; background: var(--uhh-accent); color: #fff;
-    font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
-    padding: 6px 11px; border-radius: 999px;
-  }
-  .uhh__body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1; }
-  .uhh__cat { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--uhh-brand); }
-  .uhh__name { font-size: 23px; font-weight: 800; letter-spacing: -.3px; margin: 6px 0 4px; }
-  .uhh__hook { font-size: 15px; color: var(--uhh-ink); opacity: .78; margin: 0 0 14px; }
-  .uhh__stars { color: var(--uhh-accent); font-size: 15px; letter-spacing: 2px; }
-  .uhh__rate { font-size: 12.5px; color: var(--uhh-ink); opacity: .65; margin: 0 0 14px; }
-  .uhh__price { display: flex; align-items: baseline; gap: 10px; margin: 0 0 16px; }
-  .uhh__now { font-size: 26px; font-weight: 900; letter-spacing: -.4px; }
-  .uhh__was { font-size: 15px; opacity: .5; text-decoration: line-through; }
-  .uhh__cta {
-    margin-top: auto; display: block; text-align: center; text-decoration: none;
-    background: var(--uhh-brand); color: #fff; font-size: 16px; font-weight: 800;
-    padding: 14px; border-radius: 12px;
-  }
-  .uhh__cta:hover { filter: brightness(1.07); }
-
-  /* trust strip */
-  .uhh__trust {
-    max-width: 1180px; margin: 0 auto; padding: 8px 1.5rem 54px;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px;
-  }
-  @media (min-width: 640px) { .uhh__trust { grid-template-columns: repeat(4, 1fr); } }
-  .uhh__ti { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; padding: 10px 0; }
-  .uhh__ti svg { width: 18px; height: 18px; color: var(--uhh-brand); flex: 0 0 auto; }
+  /* deal cards */
+  .uho__grid { max-width: 1180px; margin: 0 auto; padding: 20px 1.5rem 12px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 780px) { .uho__grid { grid-template-columns: 1fr 1fr; } }
+  .uho__card { background: var(--uho-surface); border: 1px solid rgba(0,0,0,.08); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; position: relative; }
+  .uho__media { aspect-ratio: 16/10; background: linear-gradient(160deg,#dfe7df,#c7d3c4); position: relative; display: flex; align-items: center; justify-content: center; }
+  .uho__media img { width: 100%; height: 100%; object-fit: cover; }
+  .uho__off { position: absolute; top: 14px; left: 14px; background: var(--uho-sale); color: #fff; font-size: 15px; font-weight: 900; padding: 7px 12px; border-radius: 10px; letter-spacing: -.02em; }
+  .uho__seal { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,.7); color: #fff; font-size: 11px; font-weight: 700; padding: 6px 10px; border-radius: 999px; }
+  .uho__body { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+  .uho__cat { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--uho-brand); }
+  .uho__name { font-size: 23px; font-weight: 800; letter-spacing: -.3px; margin: 6px 0 4px; }
+  .uho__hook { font-size: 14.5px; opacity: .78; margin: 0 0 12px; }
+  .uho__stars { color: var(--uho-accent); font-size: 15px; letter-spacing: 2px; }
+  .uho__rate { font-size: 12.5px; opacity: .65; margin: 4px 0 14px; }
+  .uho__price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 0 0 4px; }
+  .uho__now { font-size: 28px; font-weight: 900; letter-spacing: -.5px; color: var(--uho-sale); }
+  .uho__was { font-size: 16px; opacity: .5; text-decoration: line-through; }
+  .uho__save { font-size: 12px; font-weight: 800; color: #fff; background: var(--uho-brand); padding: 3px 9px; border-radius: 6px; }
+  .uho__urg { font-size: 12.5px; font-weight: 700; color: var(--uho-sale); margin: 10px 0 14px; display: flex; align-items: center; gap: 7px; }
+  .uho__urg .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--uho-sale); box-shadow: 0 0 0 0 var(--uho-sale); animation: uhoPulse 1.8s infinite; }
+  @keyframes uhoPulse { 0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--uho-sale) 55%,transparent);} 70%{box-shadow:0 0 0 8px transparent;} 100%{box-shadow:0 0 0 0 transparent;} }
+  @media (prefers-reduced-motion: reduce) { .uho__urg .pulse { animation: none; } }
+  .uho__cta { margin-top: auto; display: block; text-align: center; text-decoration: none; background: var(--uho-brand); color: #fff; font-size: 16px; font-weight: 800; padding: 14px; border-radius: 12px; }
+  .uho__cta:hover { filter: brightness(1.07); }
+  .uho__brands { text-align: center; font-size: 13px; opacity: .65; padding: 6px 1.5rem 46px; }
 </style>
 
-<section class="uhh">
-  <div class="uhh__top">
-    {%- if section.settings.brand_name != blank -%}
-      <p class="uhh__brand">{{ section.settings.brand_name }}<span class="dot">.</span></p>
-    {%- endif -%}
-    {%- if section.settings.eyebrow != blank -%}
-      <p class="uhh__eyebrow">{{ section.settings.eyebrow }}</p>
-    {%- endif -%}
-    <h1 class="uhh__headline">{{ section.settings.headline }}</h1>
-    {%- if section.settings.subhead != blank -%}
-      <p class="uhh__sub">{{ section.settings.subhead }}</p>
-    {%- endif -%}
+<section class="uho" data-countdown-hours="{{ section.settings.countdown_hours | default: 8 }}">
+  {%- if section.settings.show_bar -%}
+    <div class="uho__bar">
+      <span>{{ section.settings.bar_text }}</span>
+      <span class="uho__count" data-uho-timer>--:--:--</span>
+    </div>
+  {%- endif -%}
+
+  <div class="uho__top">
+    {%- if section.settings.brand_name != blank -%}<p class="uho__brand">{{ section.settings.brand_name }}<span class="dot">.</span></p>{%- endif -%}
+    {%- if section.settings.eyebrow != blank -%}<p class="uho__eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h1 class="uho__headline">{{ section.settings.headline }}</h1>
+    {%- if section.settings.subhead != blank -%}<p class="uho__sub">{{ section.settings.subhead }}</p>{%- endif -%}
   </div>
 
-  <div class="uhh__grid">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'product' -%}
-        <article class="uhh__card" {{ block.shopify_attributes }}>
-          <div class="uhh__media">
-            {%- if block.settings.image != blank -%}
-              <img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.name | escape }}" loading="lazy">
-            {%- endif -%}
-            {%- if block.settings.tag != blank -%}<span class="uhh__tag">{{ block.settings.tag }}</span>{%- endif -%}
-          </div>
-          <div class="uhh__body">
-            <span class="uhh__cat">{{ block.settings.category }}</span>
-            <h2 class="uhh__name">{{ block.settings.name }}</h2>
-            <p class="uhh__hook">{{ block.settings.hook }}</p>
-            <div class="uhh__stars">★★★★★</div>
-            <p class="uhh__rate">{{ block.settings.rating }}</p>
-            <div class="uhh__price">
-              <span class="uhh__now">{{ block.settings.price }}</span>
-              {%- if block.settings.compare != blank -%}<span class="uhh__was">{{ block.settings.compare }}</span>{%- endif -%}
-            </div>
-            <a class="uhh__cta" href="{{ block.settings.link | default: '#' }}">{{ block.settings.cta | default: 'Koupit' }}</a>
-          </div>
-        </article>
-      {%- endif -%}
-    {%- endfor -%}
+  <div class="uho__icons">
+    {%- for block in section.blocks -%}{%- if block.type == 'benefit' -%}
+      <div class="uho__ic" {{ block.shopify_attributes }}><span class="em">{{ block.settings.emoji }}</span><span>{{ block.settings.label }}</span></div>
+    {%- endif -%}{%- endfor -%}
   </div>
 
-  <div class="uhh__trust">
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'trust' -%}
-        <div class="uhh__ti" {{ block.shopify_attributes }}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          <span>{{ block.settings.label }}</span>
+  <div class="uho__grid">
+    {%- for block in section.blocks -%}{%- if block.type == 'product' -%}
+      <article class="uho__card" {{ block.shopify_attributes }}>
+        <div class="uho__media">
+          {%- if block.settings.image != blank -%}<img src="{{ block.settings.image | image_url: width: 900 }}" alt="{{ block.settings.name | escape }}" loading="lazy">{%- endif -%}
+          {%- if block.settings.off != blank -%}<span class="uho__off">{{ block.settings.off }}</span>{%- endif -%}
+          {%- if block.settings.seal != blank -%}<span class="uho__seal">{{ block.settings.seal }}</span>{%- endif -%}
         </div>
-      {%- endif -%}
-    {%- endfor -%}
+        <div class="uho__body">
+          <span class="uho__cat">{{ block.settings.category }}</span>
+          <h2 class="uho__name">{{ block.settings.name }}</h2>
+          <p class="uho__hook">{{ block.settings.hook }}</p>
+          <div class="uho__stars">★★★★★</div>
+          <p class="uho__rate">{{ block.settings.rating }}</p>
+          <div class="uho__price">
+            <span class="uho__now">{{ block.settings.price }}</span>
+            {%- if block.settings.compare != blank -%}<span class="uho__was">{{ block.settings.compare }}</span>{%- endif -%}
+            {%- if block.settings.save != blank -%}<span class="uho__save">{{ block.settings.save }}</span>{%- endif -%}
+          </div>
+          {%- if block.settings.urgency != blank -%}<p class="uho__urg"><span class="pulse"></span>{{ block.settings.urgency }}</p>{%- endif -%}
+          <a class="uho__cta" href="{{ block.settings.link | default: '#' }}">{{ block.settings.cta | default: 'Koupit se slevou' }}</a>
+        </div>
+      </article>
+    {%- endif -%}{%- endfor -%}
   </div>
+
+  {%- if section.settings.brands_text != blank -%}
+    <p class="uho__brands">{{ section.settings.brands_text }}</p>
+  {%- endif -%}
 </section>
+
+<script>
+  (function(){
+    document.querySelectorAll('.uho').forEach(function(sec){
+      var el = sec.querySelector('[data-uho-timer]'); if(!el) return;
+      var hrs = parseInt(sec.getAttribute('data-countdown-hours'),10) || 8;
+      var key = 'uhoDeadline_' + hrs;
+      var dl = parseInt(sessionStorage.getItem(key),10);
+      if(!dl || dl < Date.now()){ dl = Date.now() + hrs*3600*1000; sessionStorage.setItem(key, dl); }
+      function pad(n){ return (n<10?'0':'')+n; }
+      function tick(){
+        var s = Math.max(0, Math.floor((dl - Date.now())/1000));
+        el.textContent = pad(Math.floor(s/3600))+':'+pad(Math.floor((s%3600)/60))+':'+pad(s%60);
+      }
+      tick(); setInterval(tick, 1000);
+    });
+  })();
+</script>
 
 {% schema %}
 {
-  "name": "Home Hero (Útulno)",
+  "name": "Home Hero — Outlet",
   "tag": "section",
-  "class": "section-home-hero",
+  "class": "section-home-outlet",
   "settings": [
     { "type": "header", "content": "Barvy" },
     { "type": "color", "id": "bg_color", "label": "Pozadí", "default": "#F7F6F1" },
     { "type": "color", "id": "surface_color", "label": "Karty", "default": "#FFFFFF" },
     { "type": "color", "id": "ink_color", "label": "Text", "default": "#1C231E" },
     { "type": "color", "id": "brand_color", "label": "Značka / CTA", "default": "#2F5D4E" },
-    { "type": "color", "id": "accent_color", "label": "Akcent", "default": "#BE6E28" },
+    { "type": "color", "id": "accent_color", "label": "Akcent (hvězdy)", "default": "#BE6E28" },
+    { "type": "color", "id": "sale_color", "label": "Výprodej (slevy, odpočet)", "default": "#D6482B" },
+
+    { "type": "header", "content": "Výprodejová lišta + odpočet" },
+    { "type": "checkbox", "id": "show_bar", "label": "Zobrazit lištu", "default": true },
+    { "type": "text", "id": "bar_text", "label": "Text lišty", "default": "🔥 VÝPRODEJ –45 % · Končí dnes! Zbývá:" },
+    { "type": "range", "id": "countdown_hours", "label": "Délka odpočtu (hodiny)", "min": 1, "max": 24, "step": 1, "default": 8 },
 
     { "type": "header", "content": "Hlavička" },
     { "type": "text", "id": "brand_name", "label": "Název značky", "default": "Útulno" },
-    { "type": "text", "id": "eyebrow", "label": "Nadtitulek", "default": "Chytří pomocníci pro domov i zahradu" },
-    { "type": "text", "id": "headline", "label": "Titulek", "default": "Nudnou práci nechte robotům. Užijte si volno." },
-    { "type": "textarea", "id": "subhead", "label": "Podtitulek", "default": "Vybíráme jen ověřené bestsellery — poctivé české ceny, doprava Zásilkovnou a platba dobírkou. Doma i na zahradě máte hotovo, aniž byste hnuli prstem." }
+    { "type": "text", "id": "eyebrow", "label": "Nadtitulek", "default": "Outlet chytrých pomocníků · jen ověřené značky" },
+    { "type": "text", "id": "headline", "label": "Titulek", "default": "Výprodej: nudnou práci nechte robotům." },
+    { "type": "textarea", "id": "subhead", "label": "Podtitulek", "default": "Ověřené bestsellery za výprodejové ceny. Doprava Zásilkovnou, platba dobírkou, český servis. Skladem — odesíláme dnes." },
+
+    { "type": "header", "content": "Značky (patička sekce)" },
+    { "type": "text", "id": "brands_text", "label": "Text", "default": "Pouze ověřené značky: MOVA · Roborock · Segway — s plnou českou zárukou." }
   ],
   "blocks": [
     {
-      "type": "product",
-      "name": "Produkt (hero)",
+      "type": "benefit", "name": "Ikona důvěry",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Fotka" },
-        { "type": "text", "id": "tag", "label": "Odznak", "default": "Bestseller" },
-        { "type": "text", "id": "category", "label": "Kategorie", "default": "Zahrada" },
-        { "type": "text", "id": "name", "label": "Název", "default": "MOVA ViAX 500" },
-        { "type": "text", "id": "hook", "label": "Benefit", "default": "Robotická sekačka bez drátu. Poseká trávník za vás." },
-        { "type": "text", "id": "rating", "label": "Hodnocení", "default": "Nejprodávanější bezdrátová sekačka · Ověřeno zákazníky" },
-        { "type": "text", "id": "price", "label": "Cena", "default": "14 990 Kč" },
-        { "type": "text", "id": "compare", "label": "Původní cena", "default": "17 990 Kč" },
-        { "type": "text", "id": "cta", "label": "Tlačítko", "default": "Prohlédnout sekačku" },
-        { "type": "url", "id": "link", "label": "Odkaz" }
+        { "type": "text", "id": "emoji", "label": "Emoji", "default": "🚚" },
+        { "type": "text", "id": "label", "label": "Text", "default": "Rychlé a spolehlivé doručení" }
       ]
     },
     {
-      "type": "trust",
-      "name": "Prvek důvěry",
+      "type": "product", "name": "Produkt (výprodej)",
       "settings": [
-        { "type": "text", "id": "label", "label": "Text", "default": "Doprava Zásilkovnou zdarma" }
+        { "type": "image_picker", "id": "image", "label": "Fotka" },
+        { "type": "text", "id": "off", "label": "Sleva (odznak)", "default": "−45 %" },
+        { "type": "text", "id": "seal", "label": "Pravý odznak", "default": "Nejprodávanější" },
+        { "type": "text", "id": "category", "label": "Kategorie", "default": "Zahrada" },
+        { "type": "text", "id": "name", "label": "Název", "default": "MOVA ViAX 500" },
+        { "type": "text", "id": "hook", "label": "Benefit", "default": "Robotická sekačka bez drátu. Poseká za vás." },
+        { "type": "text", "id": "rating", "label": "Hodnocení", "default": "Nejprodávanější bezdrátová sekačka · Ověřeno zákazníky" },
+        { "type": "text", "id": "price", "label": "Výprodejová cena", "default": "14 990 Kč" },
+        { "type": "text", "id": "compare", "label": "Původní cena", "default": "26 990 Kč" },
+        { "type": "text", "id": "save", "label": "Úspora", "default": "Ušetříte 12 000 Kč" },
+        { "type": "text", "id": "urgency", "label": "Urgence", "default": "Skladem poslední 4 kusy za tuto cenu" },
+        { "type": "text", "id": "cta", "label": "Tlačítko", "default": "Koupit se slevou" },
+        { "type": "url", "id": "link", "label": "Odkaz" }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Home Hero (Útulno)",
+      "name": "Home Hero — Outlet",
       "blocks": [
+        { "type": "benefit", "settings": { "emoji": "🚚", "label": "Rychlé a spolehlivé doručení" } },
+        { "type": "benefit", "settings": { "emoji": "✅", "label": "Zaručená kvalita značek" } },
+        { "type": "benefit", "settings": { "emoji": "🔒", "label": "Bezpečný nákup i dobírka" } },
+        { "type": "benefit", "settings": { "emoji": "💬", "label": "Česká zákaznická podpora" } },
         { "type": "product", "settings": {
-          "category": "Zahrada", "tag": "Bestseller · Jaro–léto",
-          "name": "MOVA ViAX 500",
+          "off": "−44 %", "seal": "Nejprodávanější", "category": "Zahrada", "name": "MOVA ViAX 500",
           "hook": "Robotická sekačka bez drátu. Poseká trávník za vás — i na chatě.",
           "rating": "Nejprodávanější bezdrátová sekačka · Ověřeno zákazníky",
-          "price": "14 990 Kč", "compare": "17 990 Kč", "cta": "Prohlédnout sekačku" } },
+          "price": "14 990 Kč", "compare": "26 990 Kč", "save": "Ušetříte 12 000 Kč",
+          "urgency": "Skladem poslední 4 kusy za tuto cenu", "cta": "Koupit se slevou" } },
         { "type": "product", "settings": {
-          "category": "Domov", "tag": "Bestseller · Celoročně",
-          "name": "Roborock Qrevo S Pro",
+          "off": "−42 %", "seal": "Nejžádanější", "category": "Domov", "name": "Roborock Qrevo S Pro",
           "hook": "Robotický vysavač s mopem. Vysaje i vytře. Úplně sám.",
           "rating": "Nejžádanější robotický vysavač roku · Ověřeno zákazníky",
-          "price": "15 490 Kč", "compare": "18 990 Kč", "cta": "Prohlédnout vysavač" } },
-        { "type": "trust", "settings": { "label": "Doprava Zásilkovnou zdarma nad 1 500 Kč" } },
-        { "type": "trust", "settings": { "label": "Platba dobírkou i kartou" } },
-        { "type": "trust", "settings": { "label": "14 dní na vrácení · 24 měsíců záruka" } },
-        { "type": "trust", "settings": { "label": "Ověřeno zákazníky · český servis" } }
+          "price": "15 490 Kč", "compare": "26 990 Kč", "save": "Ušetříte 11 500 Kč",
+          "urgency": "Akce končí dnes — pak zpět na 26 990 Kč", "cta": "Koupit se slevou" } }
       ]
     }
   ]
