@@ -2,7 +2,7 @@
 
 **Ing. Vlasta Svatoňová**, se sídlem Haštalská 752/14, 110 00 Praha 1, IČO: 34567925, zapsaná v živnostenském rejstříku, neplátce DPH, e-mail: utulnoservice@hotmail.com (dále jen „prodávající").
 
-Tento reklamační řád upravuje způsob a podmínky reklamace vad zboží zakoupeného kupujícím-spotřebitelem od prodávajícího prostřednictvím internetového obchodu na adrese [doména vašeho e-shopu].
+Tento reklamační řád upravuje způsob a podmínky reklamace vad zboží zakoupeného kupujícím-spotřebitelem od prodávajícího prostřednictvím internetového obchodu na adrese utulnoo.cz.
 
 ## 1. Odpovědnost prodávajícího za vady
 
