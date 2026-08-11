@@ -154,17 +154,17 @@
 
     { "type": "header", "content": "Výprodejová lišta + odpočet" },
     { "type": "checkbox", "id": "show_bar", "label": "Zobrazit lištu", "default": true },
-    { "type": "text", "id": "bar_text", "label": "Text lišty", "default": "🔥 VÝPRODEJ –45 % · Končí dnes! Zbývá:" },
+    { "type": "text", "id": "bar_text", "label": "Text lišty", "default": "🔥 VÝPRODEJ · Vše musí pryč! Končí dnes — zbývá:" },
     { "type": "range", "id": "countdown_hours", "label": "Délka odpočtu (hodiny)", "min": 1, "max": 24, "step": 1, "default": 8 },
 
     { "type": "header", "content": "Hlavička" },
     { "type": "text", "id": "brand_name", "label": "Název značky", "default": "Útulno" },
-    { "type": "text", "id": "eyebrow", "label": "Nadtitulek", "default": "Outlet chytrých pomocníků · jen ověřené značky" },
-    { "type": "text", "id": "headline", "label": "Titulek", "default": "Výprodej: nudnou práci nechte robotům." },
-    { "type": "textarea", "id": "subhead", "label": "Podtitulek", "default": "Ověřené bestsellery za výprodejové ceny. Doprava Zásilkovnou, platba dobírkou, český servis. Skladem — odesíláme dnes." },
+    { "type": "text", "id": "eyebrow", "label": "Nadtitulek", "default": "Outlet · ověřené kousky za nejlepší ceny" },
+    { "type": "text", "id": "headline", "label": "Titulek", "default": "Vše musí pryč. Ověřené kousky za výprodejové ceny." },
+    { "type": "textarea", "id": "subhead", "label": "Podtitulek", "default": "Vybíráme oblíbené kousky a pouštíme je za výprodejové ceny. Bezpečná platba kartou, doručení se sledováním a 30 dní na vrácení zdarma." },
 
     { "type": "header", "content": "Značky (patička sekce)" },
-    { "type": "text", "id": "brands_text", "label": "Text", "default": "Pouze ověřené značky: MOVA · Roborock · Segway — s plnou českou zárukou." }
+    { "type": "text", "id": "brands_text", "label": "Text", "default": "Jen ověřené kousky za výprodejové ceny — každý týden přibývají nové." }
   ],
   "blocks": [
     {
@@ -180,14 +180,14 @@
         { "type": "image_picker", "id": "image", "label": "Fotka" },
         { "type": "text", "id": "off", "label": "Sleva (odznak)", "default": "−45 %" },
         { "type": "text", "id": "seal", "label": "Pravý odznak", "default": "Nejprodávanější" },
-        { "type": "text", "id": "category", "label": "Kategorie", "default": "Zahrada" },
-        { "type": "text", "id": "name", "label": "Název", "default": "MOVA ViAX 500" },
-        { "type": "text", "id": "hook", "label": "Benefit", "default": "Robotická sekačka bez drátu. Poseká za vás." },
-        { "type": "text", "id": "rating", "label": "Hodnocení", "default": "Nejprodávanější bezdrátová sekačka · Ověřeno zákazníky" },
-        { "type": "text", "id": "price", "label": "Výprodejová cena", "default": "14 990 Kč" },
-        { "type": "text", "id": "compare", "label": "Původní cena", "default": "26 990 Kč" },
-        { "type": "text", "id": "save", "label": "Úspora", "default": "Ušetříte 12 000 Kč" },
-        { "type": "text", "id": "urgency", "label": "Urgence", "default": "Skladem poslední 4 kusy za tuto cenu" },
+        { "type": "text", "id": "category", "label": "Kategorie", "default": "Výprodej" },
+        { "type": "text", "id": "name", "label": "Název", "default": "Název produktu" },
+        { "type": "text", "id": "hook", "label": "Benefit", "default": "Krátký popis hlavní výhody produktu." },
+        { "type": "text", "id": "rating", "label": "Hodnocení", "default": "Oblíbený kousek · Ověřeno zákazníky" },
+        { "type": "text", "id": "price", "label": "Výprodejová cena", "default": "0 Kč" },
+        { "type": "text", "id": "compare", "label": "Původní cena", "default": "0 Kč" },
+        { "type": "text", "id": "save", "label": "Úspora", "default": "Ušetříte …" },
+        { "type": "text", "id": "urgency", "label": "Urgence", "default": "Skladem poslední kusy za tuto cenu" },
         { "type": "text", "id": "cta", "label": "Tlačítko", "default": "Koupit se slevou" },
         { "type": "url", "id": "link", "label": "Odkaz" }
       ]
@@ -202,17 +202,17 @@
         { "type": "benefit", "settings": { "emoji": "🔒", "label": "Bezpečný nákup i dobírka" } },
         { "type": "benefit", "settings": { "emoji": "💬", "label": "Česká zákaznická podpora" } },
         { "type": "product", "settings": {
-          "off": "−44 %", "seal": "Nejprodávanější", "category": "Zahrada", "name": "MOVA ViAX 500",
-          "hook": "Robotická sekačka bez drátu. Poseká trávník za vás — i na chatě.",
-          "rating": "Nejprodávanější bezdrátová sekačka · Ověřeno zákazníky",
-          "price": "14 990 Kč", "compare": "26 990 Kč", "save": "Ušetříte 12 000 Kč",
-          "urgency": "Skladem poslední 4 kusy za tuto cenu", "cta": "Koupit se slevou" } },
+          "off": "−50 %", "seal": "Nejprodávanější", "category": "Výprodej", "name": "Název produktu",
+          "hook": "Krátký popis hlavní výhody produktu.",
+          "rating": "Oblíbený kousek · Ověřeno zákazníky",
+          "price": "0 Kč", "compare": "0 Kč", "save": "Ušetříte …",
+          "urgency": "Skladem poslední kusy za tuto cenu", "cta": "Koupit se slevou" } },
         { "type": "product", "settings": {
-          "off": "−42 %", "seal": "Nejžádanější", "category": "Domov", "name": "Roborock Qrevo S Pro",
-          "hook": "Robotický vysavač s mopem. Vysaje i vytře. Úplně sám.",
-          "rating": "Nejžádanější robotický vysavač roku · Ověřeno zákazníky",
-          "price": "15 490 Kč", "compare": "26 990 Kč", "save": "Ušetříte 11 500 Kč",
-          "urgency": "Akce končí dnes — pak zpět na 26 990 Kč", "cta": "Koupit se slevou" } }
+          "off": "−50 %", "seal": "Nejžádanější", "category": "Výprodej", "name": "Název produktu",
+          "hook": "Krátký popis hlavní výhody produktu.",
+          "rating": "Oblíbený kousek · Ověřeno zákazníky",
+          "price": "0 Kč", "compare": "0 Kč", "save": "Ušetříte …",
+          "urgency": "Akce končí dnes — pak zpět na běžnou cenu", "cta": "Koupit se slevou" } }
       ]
     }
   ]
